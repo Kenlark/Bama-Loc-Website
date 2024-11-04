@@ -1,0 +1,64 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --navbar-color: #191919;
+}
+
+.navbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--navbar-color);
+  height: 5rem;
+  position: relative;
+}
+
+.flexNavbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0 5rem;
+}
+
+.navlink {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.navlink ul {
+  display: flex;
+  flex-direction: row;
+  gap: 0.75rem;
+}
+
+.navlink ul li {
+  list-style: none;
+}
+
+.active-btn {
+  color: white;
+  text-decoration: none;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid white;
+}
+
+.inactive-btn {
+  color: white;
+  text-decoration: none;
+}
+
+.logoHome {
+  width: 175px;
+  margin-block-start: 1rem;
+}
+
+.contact {
+  color: white;
+  margin-left: auto;
+}
