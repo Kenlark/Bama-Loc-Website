@@ -1,24 +1,24 @@
 import { NavLink } from "react-router-dom";
-import styles from "../styles/navbar.module.css";
+
 import Logo from "../assets/images/4.png";
 
 const Navbar = () => {
   return (
     <>
-      <section className={styles.navbar}>
-        <div className={styles.flexNavbar}>
+      <section className="navbar">
+        <div className="flex-navbar">
           <div>
             <NavLink to="/">
-              <img src={Logo} alt="Logo Bama'Loc" className={styles.logoHome} />
+              <img src={Logo} alt="Logo Bama'Loc" className="logo-home" />
             </NavLink>
           </div>
-          <nav className={styles.navlink}>
+          <nav className="navlink">
             <ul>
               <li>
                 <NavLink
                   to="/"
                   className={({ isActive }) =>
-                    isActive ? styles["active-btn"] : styles["inactive-btn"]
+                    isActive ? "active-btn" : "inactive-btn"
                   }
                 >
                   Accueil
@@ -28,7 +28,7 @@ const Navbar = () => {
                 <NavLink
                   to="vehicule"
                   className={({ isActive }) =>
-                    isActive ? styles["active-btn"] : styles["inactive-btn"]
+                    isActive ? "active-btn" : "inactive-btn"
                   }
                 >
                   Nos Véhicules
@@ -38,7 +38,7 @@ const Navbar = () => {
                 <NavLink
                   to="options"
                   className={({ isActive }) =>
-                    isActive ? styles["active-btn"] : styles["inactive-btn"]
+                    isActive ? "active-btn" : "inactive-btn"
                   }
                 >
                   Options & Services
@@ -48,7 +48,7 @@ const Navbar = () => {
                 <NavLink
                   to="infos"
                   className={({ isActive }) =>
-                    isActive ? styles["active-btn"] : styles["inactive-btn"]
+                    isActive ? "active-btn" : "inactive-btn"
                   }
                 >
                   Infos Utiles
@@ -58,7 +58,7 @@ const Navbar = () => {
                 <NavLink
                   to="contact"
                   className={({ isActive }) =>
-                    isActive ? styles["active-btn"] : styles["inactive-btn"]
+                    isActive ? "active-btn" : "inactive-btn"
                   }
                 >
                   Contact
@@ -66,7 +66,7 @@ const Navbar = () => {
               </li>
             </ul>
           </nav>
-          <a className={styles.contact} href="tel:+590690287436">
+          <a className="contact" href="tel:+590690287436">
             Contactez-Nous ! : +590 6 90 28 74 36
           </a>
         </div>

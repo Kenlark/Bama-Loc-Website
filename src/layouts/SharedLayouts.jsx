@@ -1,14 +1,13 @@
 import { Outlet } from "react-router-dom";
 
-import styles from "../styles/layout.module.css";
 import Navbar from "../components/Navbar.jsx";
 import Footer from "../components/Footer.jsx";
 
 function SharedLayout() {
   return (
-    <div className={styles.layout}>
+    <div className="layout">
       <Navbar />
-      <main className={styles.mainContent}>
+      <main className="main-content">
         <Outlet />
       </main>
       <Footer />

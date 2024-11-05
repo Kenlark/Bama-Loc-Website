@@ -1,6 +1,6 @@
 import Starter from "./index.jsx";
 
-import "../src/index.css";
+import "../src/styles/index.css";
 
 function App() {
   return (
