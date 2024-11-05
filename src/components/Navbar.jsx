@@ -1,6 +1,7 @@
 import { NavLink } from "react-router-dom";
 
 import Logo from "../assets/images/4.png";
+import LogoPhone from "../assets/images/iconmonstr-phone-1.svg";
 
 const Navbar = () => {
   return (
@@ -66,9 +67,13 @@ const Navbar = () => {
               </li>
             </ul>
           </nav>
-          <a className="contact" href="tel:+590690287436">
-            Contactez-Nous ! : +590 6 90 28 74 36
-          </a>
+          <div className="contact">
+            <a href="tel:+590690287436">
+              <p>
+                <img src={LogoPhone} className="phone" /> +590 6 90 28 74 36
+              </p>
+            </a>
+          </div>
         </div>
       </section>
     </>
