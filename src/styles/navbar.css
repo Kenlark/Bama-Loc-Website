@@ -7,15 +7,37 @@
 :root {
   --navbar-color: #191919;
   --ff-color: #e3e2e2;
+  --ff-red: #ef4444;
+  --ff-grey1: #f9fafb;
+  --ff-grey2: #f3f4f6;
+  --ff-grey3: #d1d5db;
+  --ff-grey4: #4b5563;
+}
+
+.navbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--navbar-color);
+  height: 5rem;
+  position: relative;
+  position: sticky;
+  top: 0;
+}
+
+.navbar,
+.info-number {
+  z-index: 100;
 }
 
 .info-number {
   display: flex;
   justify-content: start;
   align-items: center;
-  background-color: #cc3333;
-  height: 2rem;
-  z-index: 999;
+  background-color: var(--ff-red);
+  height: 1.5rem;
+  position: sticky;
+  top: 0;
 }
 
 .slash {
@@ -25,17 +47,18 @@
 .number {
   margin-inline-start: 6.4rem;
   color: var(--ff-color);
-  font-size: 14px;
+  font-size: 0.75em;
   color: var(--ff-color);
 }
 
 .mail {
+  font-size: 0.75em;
   margin-inline-start: 1rem;
 }
 
 .mail-logo {
   filter: invert(1);
-  width: 22px;
+  width: 1.5em;
 }
 
 .flex-infos {
@@ -55,21 +78,12 @@
   gap: 0.5rem;
 }
 
-.navbar {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: var(--navbar-color);
-  height: 5rem;
-  position: relative;
-}
-
 .flex-navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  padding: 0 5rem;
+  padding: 0rem 5rem;
 }
 
 .navlink {
@@ -120,12 +134,12 @@
 
 .phone {
   margin-inline-end: 0.2rem;
-  width: 20px;
+  width: 1.5em;
   filter: invert(1);
 }
 
 .btn-contact {
-  background-color: #cc3333;
+  background-color: var(--ff-red);
   border: transparent;
   color: var(--ff-color);
   padding: 0.5rem 0.7rem;

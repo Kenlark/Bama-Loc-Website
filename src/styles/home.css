@@ -1,0 +1,49 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --navbar-color: #191919;
+  --ff-color: #e3e2e2;
+  --ff-red: #ef4444;
+  --ff-grey1: #f9fafb;
+  --ff-grey2: #f3f4f6;
+  --ff-grey3: #d1d5db;
+  --ff-grey4: #4b5563;
+}
+
+.test {
+  position: relative;
+}
+
+.hero {
+  width: 100%;
+  height: 100vh;
+  background-image: url("../assets/images/Banniere-BamaLoc.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.btn-hero {
+  position: fixed;
+  top: 43%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: transparent;
+  border: 1px solid var(--ff-grey2);
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-hero:hover {
+  color: black;
+  background-color: var(--ff-grey3);
+  transition: 0.3s all ease-in-out;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+}
