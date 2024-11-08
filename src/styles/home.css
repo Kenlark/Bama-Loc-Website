@@ -12,6 +12,7 @@
   --ff-grey2: #f3f4f6;
   --ff-grey3: #d1d5db;
   --ff-grey4: #4b5563;
+  --transition: all 0.3s ease;
 }
 
 .section-carrousel {
@@ -31,7 +32,7 @@
 
 .btn-hero {
   position: absolute;
-  top: 26%;
+  top: 24%;
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: transparent;
@@ -95,12 +96,11 @@
 }
 
 .prev {
-  left: 10px;
   transform: translateY(-50%);
 }
 
 .next {
-  right: 10px;
+  right: 0;
   transform: translateY(-50%);
 }
 
@@ -111,11 +111,10 @@
 
 .pagination-dots {
   display: flex;
-  position: absolute;
-  bottom: -23rem;
-  left: 50%;
-  transform: translateX(-50%);
+  justify-content: center;
+  margin-top: 1rem;
   gap: 0.5rem;
+  padding-block-end: 5rem;
 }
 
 .pagination-dot {
@@ -123,10 +122,10 @@
   height: 10px;
   border-radius: 50%;
   border: none;
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: var(--ff-grey3);
   cursor: pointer;
   padding: 0;
-  transition: all 0.3s ease;
+  transition: var(--transition);
 }
 
 .pagination-dot.active-dot {
@@ -136,9 +135,29 @@
 
 .pagination-dot.inactive-dot {
   background-color: var(--ff-grey3);
-  transform: scale(1.2);
 }
 
 .pagination-dot:hover {
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: #333333;
+}
+
+.description {
+  padding-block-start: 5rem;
+  background-color: #ef4444;
+  color: white;
+  padding-block-end: 5rem;
+}
+
+.grid-desc {
+  display: grid;
+  place-content: center;
+}
+
+.grid-desc h1 {
+  padding-block-end: 2rem;
+  text-align: center;
+}
+
+.desc-text {
+  max-width: 90ch;
 }

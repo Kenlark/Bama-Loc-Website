@@ -58,19 +58,40 @@ const Home = () => {
               &#8250;
             </button>
           </div>
+          <div className="pagination-dots">
+            {images.map((_, index) => (
+              <button
+                key={index}
+                className={`pagination-dot ${
+                  index === currentIndex ? "active-dot" : "inactive-dot"
+                }`}
+                onClick={() => goToSlide(index)}
+              />
+            ))}
+          </div>
         </div>
       </section>
-      <div className="pagination-dots">
-        {images.map((_, index) => (
-          <button
-            key={index}
-            className={`pagination-dot ${
-              index === currentIndex ? "active-dot" : "inactive-dot"
-            }`}
-            onClick={() => goToSlide(index)}
-          />
-        ))}
-      </div>
+      <section className="description">
+        <div className="grid-desc">
+          <div className="desc-text">
+            <h1>Qui sommes nous ?</h1>
+            <p>
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Culpa
+              officiis fugit voluptas magnam provident pariatur consectetur
+              delectus ullam minus laboriosam eaque facilis amet qui odit neque
+              facere corrupti animi, fuga iusto laudantium. Consequatur ea animi
+              repellendus saepe labore accusamus. Necessitatibus harum
+              reprehenderit qui ad exercitationem est adipisci ullam animi ea
+              laudantium facilis, sed assumenda dolorum dolor distinctio
+              molestiae nemo consectetur aut, sapiente architecto molestias
+              deserunt ipsum autem quia. Consequatur natus recusandae nam,
+              culpa, quod maiores in dolores adipisci eum illum modi porro
+              repellat odit. Officia sapiente nobis quas rerum, non nisi hic
+              vel? Quo consequuntur fugiat eaque, ipsa sit recusandae!
+            </p>
+          </div>
+        </div>
+      </section>
     </>
   );
 };
