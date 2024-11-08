@@ -14,23 +14,24 @@
   --ff-grey4: #4b5563;
 }
 
-.test {
+.section-carrousel {
   position: relative;
 }
 
 .hero {
   width: 100%;
-  height: 71vh;
+  height: calc(50vw); /* Ajuster la hauteur selon la largeur de l'écran */
+  max-height: 71vh;
   background-image: url("../assets/images/Banniere-BamaLoc.png");
-  background-size: 100%;
-  background-position: top center;
+  background-size: cover;
+  background-position: center;
   background-repeat: no-repeat;
-  background-attachment: fixed;
+  position: relative;
 }
 
 .btn-hero {
-  position: fixed;
-  top: 38%;
+  position: absolute;
+  top: 26%;
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: transparent;
@@ -106,4 +107,38 @@
 .prev:hover,
 .next:hover {
   background-color: rgba(0, 0, 0, 0.8);
+}
+
+.pagination-dots {
+  display: flex;
+  position: absolute;
+  bottom: -23rem;
+  left: 50%;
+  transform: translateX(-50%);
+  gap: 0.5rem;
+}
+
+.pagination-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.3s ease;
+}
+
+.pagination-dot.active-dot {
+  background-color: black;
+  transform: scale(1.2);
+}
+
+.pagination-dot.inactive-dot {
+  background-color: var(--ff-grey3);
+  transform: scale(1.2);
+}
+
+.pagination-dot:hover {
+  background-color: rgba(255, 255, 255, 0.8);
 }

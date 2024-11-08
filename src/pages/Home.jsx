@@ -11,60 +11,67 @@ const Home = () => {
   const [transition, setTransition] = useState(true);
 
   const nextImage = () => {
-    if (currentIndex === images.length - 1) {
-      setTransition(false);
-      setCurrentIndex(0);
-    } else {
-      setTransition(true);
-      setCurrentIndex(currentIndex + 1);
-    }
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
   };
 
   const prevImage = () => {
-    if (currentIndex === 0) {
-      setTransition(false);
-      setCurrentIndex(images.length - 1);
-    } else {
-      setTransition(true);
-      setCurrentIndex(currentIndex - 1);
-    }
+    setCurrentIndex(
+      (prevIndex) => (prevIndex - 1 + images.length) % images.length
+    );
+  };
+
+  const goToSlide = (index) => {
+    setTransition(true);
+    setCurrentIndex(index);
   };
 
   return (
-    <section className="test">
-      <div className="hero" />
-      <NavLink to="vehicule">
-        <button className="btn-hero">Découvrez Nos Voitures</button>
-      </NavLink>
-      <div className="carrousel-container">
-        <h1>Nos Véhicules</h1>
-        <div className="carrousel">
-          <div
-            className="carrousel-images"
-            style={{
-              transform: `translateX(-${currentIndex * 100}%)`,
-              transition: transition ? "transform 0.5s ease" : "none",
-            }}
-          >
-            {images.map((image, index) => (
-              <div
-                key={index}
-                className="carrousel-image"
-                style={{
-                  backgroundImage: `url(${image})`,
-                }}
-              />
-            ))}
+    <>
+      <section className="section-carrousel">
+        <div className="hero" />
+        <NavLink to="vehicule">
+          <button className="btn-hero">Découvrez Nos Voitures</button>
+        </NavLink>
+        <div className="carrousel-container">
+          <h1>Nos Véhicules</h1>
+          <div className="carrousel">
+            <div
+              className="carrousel-images"
+              style={{
+                transform: `translateX(-${currentIndex * 100}%)`,
+              }}
+            >
+              {images.map((image, index) => (
+                <div
+                  key={index}
+                  className="carrousel-image"
+                  style={{
+                    backgroundImage: `url(${image})`,
+                  }}
+                />
+              ))}
+            </div>
+            <button className="prev" onClick={prevImage}>
+              &#8249;
+            </button>
+            <button className="next" onClick={nextImage}>
+              &#8250;
+            </button>
           </div>
-          <button className="prev" onClick={prevImage}>
-            &#8249;
-          </button>
-          <button className="next" onClick={nextImage}>
-            &#8250;
-          </button>
         </div>
+      </section>
+      <div className="pagination-dots">
+        {images.map((_, index) => (
+          <button
+            key={index}
+            className={`pagination-dot ${
+              index === currentIndex ? "active-dot" : "inactive-dot"
+            }`}
+            onClick={() => goToSlide(index)}
+          />
+        ))}
       </div>
-    </section>
+    </>
   );
 };
 
