@@ -20,17 +20,17 @@
 
 .hero {
   width: 100%;
-  height: 100vh;
+  height: 71vh;
   background-image: url("../assets/images/Banniere-BamaLoc.png");
-  background-size: cover;
-  background-position: center;
+  background-size: 100%;
+  background-position: top center;
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
 
 .btn-hero {
   position: fixed;
-  top: 41%;
+  top: 38%;
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: transparent;
@@ -55,6 +55,11 @@
   max-width: 800px;
   margin: 0 auto;
   overflow: hidden;
+  padding-block-start: 5rem;
+}
+
+.carrousel-container h1 {
+  text-align: center;
 }
 
 .carrousel {
@@ -64,8 +69,8 @@
 
 .carrousel-images {
   display: flex;
-  transition: transform 0.5s ease;
   width: 100%;
+  transition: transform 0.5s ease;
 }
 
 .carrousel-image {
