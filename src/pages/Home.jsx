@@ -1,22 +1,20 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
-import car1 from "../assets/images/renault-clio-5.png";
-import car2 from "../assets/images/renault-clio-5.png";
-import car3 from "../assets/images/renault-clio-5.png";
-import car4 from "../assets/images/renault-clio-5.png";
+import carData from "../../data.js";
 
 const Home = () => {
-  const images = [car1, car2, car3, car4];
   const [currentIndex, setCurrentIndex] = useState(0);
   const [transition, setTransition] = useState(true);
 
   const nextImage = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+    setTransition(true);
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % carData.length);
   };
 
   const prevImage = () => {
+    setTransition(true);
     setCurrentIndex(
-      (prevIndex) => (prevIndex - 1 + images.length) % images.length
+      (prevIndex) => (prevIndex - 1 + carData.length) % carData.length
     );
   };
 
@@ -39,27 +37,44 @@ const Home = () => {
               className="carrousel-images"
               style={{
                 transform: `translateX(-${currentIndex * 100}%)`,
+                transition: transition ? "transform 0.5s ease" : "none",
               }}
             >
-              {images.map((image, index) => (
+              {carData.map((car) => (
                 <div
-                  key={index}
-                  className="carrousel-image"
-                  style={{
-                    backgroundImage: `url(${image})`,
-                  }}
-                />
+                  key={car.id}
+                  className={`carrousel-item ${
+                    carData.indexOf(car) === currentIndex
+                      ? "active"
+                      : "background"
+                  }`}
+                >
+                  <img
+                    src={car.url}
+                    alt={`${car.category} ${car.model}`}
+                    className="carrousel-image"
+                  />
+                  <h1>{car.category}</h1>
+                  <h1>{car.model}</h1>
+                  <NavLink to="vehicule">
+                    <button className="btn-vehicule ">Voir Plus</button>
+                  </NavLink>
+                </div>
               ))}
             </div>
-            <button className="prev" onClick={prevImage}>
-              &#8249;
-            </button>
-            <button className="next" onClick={nextImage}>
-              &#8250;
-            </button>
+            {carData.length > 1 && (
+              <>
+                <button className="prev" onClick={prevImage}>
+                  &#8249;
+                </button>
+                <button className="next" onClick={nextImage}>
+                  &#8250;
+                </button>
+              </>
+            )}
           </div>
           <div className="pagination-dots">
-            {images.map((_, index) => (
+            {carData.map((_, index) => (
               <button
                 key={index}
                 className={`pagination-dot ${
