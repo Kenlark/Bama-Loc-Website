@@ -31,7 +31,16 @@ const Home = () => {
           <button className="btn-hero">Découvrez Nos Voitures</button>
         </NavLink>
         <div className="carrousel-container">
-          <h1>Nos Véhicules</h1>
+          <div className="carrousel-h1">
+            <h1>Nos Véhicules</h1>
+          </div>
+          <div className="block-p">
+            <p className="p-vehicule">
+              Bama&apos;Loc, votre partenaire de confiance pour louer un
+              véhicule en Guadeloupe. Profitez d&apos;un service de qualité et
+              choisissez le modèle idéal pour vos déplacements sur l'île !
+            </p>
+          </div>
           <div className="carrousel">
             <div
               className="carrousel-images"
@@ -89,20 +98,18 @@ const Home = () => {
       <section className="description">
         <div className="grid-desc">
           <div className="desc-text">
-            <h1>Qui sommes nous ?</h1>
+            <div className="grid-h1">
+              <h3>Qui sommes nous ?</h3>
+            </div>
             <p>
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Culpa
-              officiis fugit voluptas magnam provident pariatur consectetur
-              delectus ullam minus laboriosam eaque facilis amet qui odit neque
-              facere corrupti animi, fuga iusto laudantium. Consequatur ea animi
-              repellendus saepe labore accusamus. Necessitatibus harum
-              reprehenderit qui ad exercitationem est adipisci ullam animi ea
-              laudantium facilis, sed assumenda dolorum dolor distinctio
-              molestiae nemo consectetur aut, sapiente architecto molestias
-              deserunt ipsum autem quia. Consequatur natus recusandae nam,
-              culpa, quod maiores in dolores adipisci eum illum modi porro
-              repellat odit. Officia sapiente nobis quas rerum, non nisi hic
-              vel? Quo consequuntur fugiat eaque, ipsa sit recusandae!
+              Bama'Loc, votre expert en location de véhicules en Guadeloupe,
+              vous offre un service de qualité pour explorer l'île en toute
+              tranquillité. Nos véhicules, soigneusement entretenus, assurent
+              confort et sécurité pour tous vos déplacements.
+            </p>
+            <p className="desc-p">
+              Contactez-nous dès maintenant pour plus d'informations et
+              préparez-vous à découvrir la Guadeloupe à votre rythme !
             </p>
           </div>
         </div>
