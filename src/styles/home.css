@@ -322,6 +322,7 @@
 
 .slick-next:before,
 .slick-prev:before {
+  font-size: 24px;
   color: var(--ff-red);
 }
 

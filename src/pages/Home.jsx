@@ -34,9 +34,10 @@ const Home = () => {
           </div>
           <div className="block-p">
             <p className="p-vehicule">
-              Bama&apos;Loc, votre partenaire de confiance pour louer un
-              véhicule en Guadeloupe. Profitez d&apos;un service de qualité et
-              choisissez le modèle idéal pour vos déplacements sur l'île !
+              Partez à l&apos;aventure en louant votre véhicule chez
+              BAMA&apos;LOC pour découvrir la beauté de la Guadeloupe !
+              N&apos;hésitez pas à nous contacter, l&apos;équipe BAMA'LOC se
+              fera un plaisir de vous répondre.
             </p>
           </div>
           <div className="carrousel-wrapper">
