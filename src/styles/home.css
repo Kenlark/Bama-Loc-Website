@@ -63,6 +63,7 @@
   position: relative;
   width: 100%;
   max-width: 800px;
+  height: 80vh;
   margin: 0 auto;
   padding-top: 2rem;
 }
@@ -162,8 +163,6 @@
 }
 
 .pagination-dot {
-  width: 12px;
-  height: 12px;
   border-radius: 50%;
   border: none;
   background-color: var(--ff-grey3);
@@ -283,7 +282,7 @@
 
 .carrousel-wrapper {
   position: relative;
-  padding: 0 50px;
+  margin-block-start: 6rem;
 }
 
 /* Style pour le slide actif/centré */
@@ -295,32 +294,35 @@
 
 /* Style des points de navigation */
 .slick-dots {
-  bottom: -1rem;
+  bottom: -3rem;
   display: flex !important;
   justify-content: center;
   gap: 0.5rem;
   padding-bottom: 2rem;
 }
 
-.pagination-dot {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  border: none;
-  background-color: var(--ff-grey3);
-  cursor: pointer;
-  padding: 0;
-  transition: var(--transition);
-}
-
 .slick-active .pagination-dot {
-  background-color: var(--navbar-color);
+  background-color: var(--ff-red);
   transform: scale(1.2);
 }
 
 .pagination-dot:hover {
-  background-color: #333333;
+  background-color: var(--ff-red);
   transform: scale(1.1);
+}
+
+.slick-dots li.slick-active button:before {
+  color: var(--ff-red);
+}
+
+.slick-dots li button:before {
+  font-size: 6px;
+  color: var(--ff-red);
+}
+
+.slick-next:before,
+.slick-prev:before {
+  color: var(--ff-red);
 }
 
 @media (max-width: 768px) {
