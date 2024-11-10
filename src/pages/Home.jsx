@@ -1,26 +1,24 @@
-import { useState } from "react";
 import { NavLink } from "react-router-dom";
+import Slider from "react-slick";
 import carData from "../../data.js";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 const Home = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [transition, setTransition] = useState(true);
-
-  const nextImage = () => {
-    setTransition(true);
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % carData.length);
-  };
-
-  const prevImage = () => {
-    setTransition(true);
-    setCurrentIndex(
-      (prevIndex) => (prevIndex - 1 + carData.length) % carData.length
-    );
-  };
-
-  const goToSlide = (index) => {
-    setTransition(true);
-    setCurrentIndex(index);
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    centerMode: true,
+    centerPadding: "0",
+    focusOnSelect: true,
+    customPaging: (i) => (
+      <button className="pagination-dot" aria-label={`Go to slide ${i + 1}`} />
+    ),
+    nextArrow: <button className="next">&#8250;</button>,
+    prevArrow: <button className="prev">&#8249;</button>,
   };
 
   return (
@@ -41,57 +39,23 @@ const Home = () => {
               choisissez le modèle idéal pour vos déplacements sur l'île !
             </p>
           </div>
-          <div className="carrousel">
-            <div
-              className="carrousel-images"
-              style={{
-                transform: `translateX(-${currentIndex * 100}%)`,
-                transition: transition ? "transform 0.5s ease" : "none",
-              }}
-            >
+          <div className="carrousel-wrapper">
+            <Slider {...settings}>
               {carData.map((car) => (
-                <div
-                  key={car.id}
-                  className={`carrousel-item ${
-                    carData.indexOf(car) === currentIndex
-                      ? "active"
-                      : "background"
-                  }`}
-                >
+                <div key={car.id} className="carrousel-item">
                   <img
-                    src={car.url}
+                    src={car.image}
                     alt={`${car.category} ${car.model}`}
                     className="carrousel-image"
                   />
                   <h1>{car.category}</h1>
                   <h1>{car.model}</h1>
                   <NavLink to="vehicule">
-                    <button className="btn-vehicule ">Voir Plus</button>
+                    <button className="btn-vehicule">Voir Plus</button>
                   </NavLink>
                 </div>
               ))}
-            </div>
-            {carData.length > 1 && (
-              <>
-                <button className="prev" onClick={prevImage}>
-                  &#8249;
-                </button>
-                <button className="next" onClick={nextImage}>
-                  &#8250;
-                </button>
-              </>
-            )}
-          </div>
-          <div className="pagination-dots">
-            {carData.map((_, index) => (
-              <button
-                key={index}
-                className={`pagination-dot ${
-                  index === currentIndex ? "active-dot" : "inactive-dot"
-                }`}
-                onClick={() => goToSlide(index)}
-              />
-            ))}
+            </Slider>
           </div>
         </div>
       </section>
