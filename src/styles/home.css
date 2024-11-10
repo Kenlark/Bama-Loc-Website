@@ -187,7 +187,6 @@
 
 .description {
   padding: 3rem 2rem;
-  background: linear-gradient(to bottom, var(--ff-grey2), white);
 }
 
 .grid-desc {
@@ -263,7 +262,6 @@
 
 .block-p {
   max-width: 90ch;
-  background: linear-gradient(to top, var(--ff-grey2), white);
   padding: 2rem;
   border-radius: 12px;
   box-shadow: var(--shadow-md);
@@ -324,6 +322,104 @@
 .slick-prev:before {
   font-size: 24px;
   color: var(--ff-red);
+}
+
+.faq-section {
+  display: flex;
+  flex-direction: column;
+  padding: 3rem 2rem;
+  max-width: 90ch;
+  margin: 0 auto;
+}
+
+.faq-section h2 {
+  display: inline-block;
+  margin: 0 auto;
+  text-align: center;
+  color: #ef4444;
+  margin-bottom: 2rem;
+  background-color: var(--ff-red);
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  color: white;
+  font-size: 1.5rem;
+  box-shadow: var(--shadow-md);
+  transition: var(--transition);
+  cursor: default;
+}
+
+.faq-section h2:hover {
+  transform: translateY(-5px);
+  transition: var(--transition);
+  cursor: default;
+}
+
+.faq-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  text-align: center;
+  max-width: 90ch;
+  margin-block-end: 1rem;
+  border-bottom: 1px solid var(--ff-grey3);
+  background-color: #fff;
+}
+
+.faq-item h3 {
+  display: flex;
+  background-color: #fff;
+  align-items: center;
+  justify-content: center;
+  color: #4b5563;
+  margin-bottom: 1rem;
+  cursor: pointer;
+}
+
+.faq-item p {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #374151;
+  background-color: #ffffff;
+  padding: 1rem;
+  margin-block-end: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  line-height: 1.6;
+}
+
+.faq-answer {
+  opacity: 0;
+  transform: scaleY(0.8);
+  transform-origin: top;
+  max-height: 0;
+  overflow: hidden;
+  transition: opacity 0.3s ease, transform 0.3s ease, max-height 0.3s ease; /* Ajoute la transition max-height */
+  background-color: #fff;
+}
+
+.faq-answer.open {
+  opacity: 1;
+  background-color: #fff;
+  transform: scaleY(1);
+  max-height: 500px;
+}
+
+.faq-answer.closed {
+  background-color: #fff;
+  opacity: 0;
+  transform: scaleY(0.8);
+  max-height: 0;
+}
+
+.chevron {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-inline-start: 0.7rem;
+  width: 25px;
 }
 
 @media (max-width: 768px) {

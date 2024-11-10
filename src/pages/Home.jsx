@@ -1,10 +1,19 @@
+import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import Slider from "react-slick";
-import carData from "../../data.js";
+import { carData, faqData } from "../../data.js";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import ChevronDown from "../assets/images/iconmonstr-arrow-65-240.png";
+import ChevronUp from "../assets/images/iconmonstr-arrow-66-240.png";
 
 const Home = () => {
+  const [openIndex, setOpenIndex] = useState(null);
+
+  const handleToggle = (index) => {
+    setOpenIndex(openIndex === index ? null : index);
+  };
+
   const settings = {
     dots: true,
     infinite: true,
@@ -78,6 +87,34 @@ const Home = () => {
             </p>
           </div>
         </div>
+      </section>
+      <section className="faq-section">
+        <h2>Foire aux Questions</h2>
+        {faqData.map((item, index) => (
+          <div key={index} className="faq-item">
+            <h3 onClick={() => handleToggle(index)}>
+              {item.question}
+              <span>
+                {openIndex === index ? (
+                  <img src={ChevronUp} alt="Chevron Up" className="chevron" />
+                ) : (
+                  <img
+                    src={ChevronDown}
+                    alt="Chevron Down"
+                    className="chevron"
+                  />
+                )}
+              </span>
+            </h3>
+            <div
+              className={`faq-answer ${
+                openIndex === index ? "open" : "closed"
+              }`}
+            >
+              <p>{item.answer}</p>
+            </div>
+          </div>
+        ))}
       </section>
     </>
   );
