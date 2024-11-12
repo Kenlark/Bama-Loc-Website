@@ -6,6 +6,9 @@ import Cars from "./pages/Cars.jsx";
 import Options from "./pages/Options.jsx";
 import Infos from "./pages/Infos.jsx";
 import Contact from "./pages/FormContact.jsx";
+import RentalConditions from "./pages/RentalConditions.jsx";
+import LegalNotice from "./pages/LegalNotice.jsx";
+import PrivacyPolicy from "./pages/PrivacyPage.jsx";
 
 const ReactRouter = () => {
   const router = createBrowserRouter([
@@ -33,6 +36,18 @@ const ReactRouter = () => {
         {
           path: "contact",
           element: <Contact />,
+        },
+        {
+          path: "conditions-generales-de-location",
+          element: <RentalConditions />,
+        },
+        {
+          path: "mentions-legales",
+          element: <LegalNotice />,
+        },
+        {
+          path: "politique-de-confidentialite",
+          element: <PrivacyPolicy />,
         },
       ],
     },

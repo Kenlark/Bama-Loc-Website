@@ -1,0 +1,47 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --navbar-color: #191919;
+  --ff-color: #e3e2e2;
+  --ff-red: #ef4444;
+  --ff-grey1: #f9fafb;
+  --ff-grey2: #f3f4f6;
+  --ff-grey3: #d1d5db;
+  --ff-grey4: #4b5563;
+  --transition: all 0.3s ease;
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.legal-notice,
+.privacy-page,
+.rental-conditions {
+  display: block;
+  margin-inline-start: auto;
+  margin-inline-end: auto;
+  max-width: 80%;
+  padding: 1rem;
+}
+
+.legal-notice h1,
+.privacy-page h1,
+.rental-conditions h1 {
+  display: inline-block;
+  border-bottom: 2px solid var(--ff-red);
+  padding-block-end: 0.5rem;
+  margin-block-end: 2rem;
+}
+
+.legal-notice p,
+.privacy-page p,
+.rental-conditions p {
+  text-align: left;
+  line-height: 1.6;
+  max-width: 60ch;
+  margin-block-end: 1rem;
+}

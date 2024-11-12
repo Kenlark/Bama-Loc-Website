@@ -7,6 +7,7 @@ import "./styles/index.css";
 import "./styles/layout.css";
 import "./styles/home.css";
 import "./styles/footer.css";
+import "./styles/legal-pages.css";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>

@@ -1,3 +1,5 @@
+import { NavLink } from "react-router-dom";
+
 import Logo from "../assets/images/4.png";
 import Instagram from "../assets/images/iconmonstr-instagram-11-240.png";
 import Facebook from "../assets/images/iconmonstr-facebook-3-240.png";
@@ -9,7 +11,9 @@ const Footer = () => {
     <>
       <section className="footer">
         <div className="flex-logo-footer">
-          <img src={Logo} alt="Logo Bama'Loc" className="logo-footer" />
+          <NavLink to="/">
+            <img src={Logo} alt="Logo Bama'Loc" className="logo-footer" />
+          </NavLink>
           <a href="https://www.instagram.com/bama.loc971/" target="blank">
             <div className="a-footer-rs">
               <img
@@ -34,13 +38,23 @@ const Footer = () => {
             </div>
           </a>
         </div>
+        <div className="flex-logo-footer-3">
+          <NavLink to="conditions-generales-de-location">
+            <p>Conditions générales de location</p>
+          </NavLink>
+          <NavLink to="mentions-legales">
+            <p>Mentions Legales</p>
+          </NavLink>
+          <NavLink to="politique-de-confidentialite">
+            <p>Politique de confidentialité</p>
+          </NavLink>
+        </div>
         <div className="flex-logo-footer-2">
           <a href="/contact" className="contact-footer">
-            <h3>Nous Contacter</h3>
+            <h3>Nous Contacter :</h3>
           </a>
-          <p className="name-enterprise">Bama'Loc</p>
           <a href="tel:+590690287436">
-            <div className="a-footer-rs">
+            <div className="a-footer-rs-2">
               <img
                 src={Phone}
                 alt="logo telephone"
@@ -50,7 +64,7 @@ const Footer = () => {
             </div>
           </a>
           <a href="mailto:resa.bamaloc971@gmail.com">
-            <div className="a-footer-rs">
+            <div className="a-footer-rs-2">
               <img src={Mail} alt="logo mail" className="logo-footer-rs" />
               <span className="span-footer">resa.bamaloc971@gmail.com</span>
             </div>
