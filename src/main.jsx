@@ -8,6 +8,7 @@ import "./styles/layout.css";
 import "./styles/home.css";
 import "./styles/footer.css";
 import "./styles/legal-pages.css";
+import "./styles/contact.css";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
