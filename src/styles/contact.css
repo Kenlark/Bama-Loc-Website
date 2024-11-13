@@ -29,3 +29,7 @@
   position: relative;
   filter: blur(3px);
 }
+
+.grecaptcha-badge {
+  visibility: hidden;
+}
