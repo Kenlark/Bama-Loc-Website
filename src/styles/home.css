@@ -22,10 +22,6 @@
   position: relative;
 }
 
-html {
-  outline: 5px solid red;
-}
-
 .hero {
   width: 100%;
   height: calc(50vw);
