@@ -1,10 +1,17 @@
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
-
 import Logo from "../assets/images/4.png";
 import LogoPhone from "../assets/images/iconmonstr-phone-1.svg";
 import LogoMail from "../assets/images/iconmonstr-email-1.svg";
+import MenuIcon from "../assets/images/iconmonstr-menu-1.svg";
 
 const Navbar = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
   return (
     <>
       <section className="info-number">
@@ -13,7 +20,6 @@ const Navbar = () => {
             <img src={LogoPhone} alt="logo tel" className="phone" />
             <span className="p-question">Une question ? :</span>
             <a href="tel:+590690287436">(+590) 6 90 28 74 36</a>
-            <span className="slash"> / </span>
           </p>
           <p className="mail flex-mail">
             <img src={LogoMail} alt="logo mail" className="mail-logo" />
@@ -30,7 +36,10 @@ const Navbar = () => {
               <img src={Logo} alt="Logo Bama'Loc" className="logo-home" />
             </NavLink>
           </div>
-          <nav className="navlink">
+          <button className="menu-button" onClick={toggleMenu}>
+            <img src={MenuIcon} alt="Menu" className="menu-icon" />
+          </button>
+          <nav className={`navlink ${isMenuOpen ? "show" : "hide"}`}>
             <ul>
               <li>
                 <NavLink
