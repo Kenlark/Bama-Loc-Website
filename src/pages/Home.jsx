@@ -14,6 +14,19 @@ const Home = () => {
     setOpenIndex(openIndex === index ? null : index);
   };
 
+  // Composants fléchés personnalisés
+  const NextArrow = ({ className, onClick }) => (
+    <button className={className} onClick={onClick} aria-label="Next Slide">
+      &#8250;
+    </button>
+  );
+
+  const PrevArrow = ({ className, onClick }) => (
+    <button className={className} onClick={onClick} aria-label="Previous Slide">
+      &#8249;
+    </button>
+  );
+
   const settings = {
     dots: true,
     infinite: true,
@@ -26,8 +39,8 @@ const Home = () => {
     customPaging: (i) => (
       <button className="pagination-dot" aria-label={`Go to slide ${i + 1}`} />
     ),
-    nextArrow: <button className="next">&#8250;</button>,
-    prevArrow: <button className="prev">&#8249;</button>,
+    nextArrow: <NextArrow />,
+    prevArrow: <PrevArrow />,
   };
 
   return (
