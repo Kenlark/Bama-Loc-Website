@@ -14,7 +14,6 @@ const Home = () => {
     setOpenIndex(openIndex === index ? null : index);
   };
 
-  // Composants fléchés personnalisés
   const NextArrow = ({ className, onClick }) => (
     <button className={className} onClick={onClick} aria-label="Next Slide">
       &#8250;
@@ -50,11 +49,11 @@ const Home = () => {
         <NavLink to="vehicule">
           <button className="btn-hero">Découvrez Nos Voitures</button>
         </NavLink>
-        <div className="carrousel-container">
-          <div className="carrousel-h1">
-            <h1>Nos Véhicules</h1>
-          </div>
+        <div className="block-p-vehicule">
           <div className="block-p">
+            <div className="carrousel-h1">
+              <h1>Nos Véhicules</h1>
+            </div>
             <p className="p-vehicule">
               Partez à l&apos;aventure en louant votre véhicule chez
               BAMA&apos;LOC pour découvrir la beauté de la Guadeloupe !
@@ -62,6 +61,8 @@ const Home = () => {
               fera un plaisir de vous répondre.
             </p>
           </div>
+        </div>
+        <div className="carrousel-container">
           <div className="carrousel-wrapper">
             <Slider {...settings}>
               {carData.map((car) => (

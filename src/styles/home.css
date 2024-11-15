@@ -63,9 +63,9 @@
   position: relative;
   width: 100%;
   max-width: 700px;
-  height: 80vh;
   margin: 0 auto;
-  padding-top: 2rem;
+  padding-block-start: 2rem;
+  padding-block-end: 2rem;
 }
 
 .carrousel-h1 {
@@ -260,18 +260,25 @@
   box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.15);
 }
 
+.block-p-vehicule {
+  padding: 3rem 2rem;
+}
+
 .block-p {
+  margin: 0 auto;
   max-width: 90ch;
   padding: 2rem;
   border-radius: 12px;
   box-shadow: var(--shadow-md);
   line-height: 1.6;
   color: var(--ff-grey4);
+  margin-block-start: 5rem;
   margin-block-end: 2rem;
 }
 
 .p-vehicule {
   text-align: justify;
+  margin-block-start: -2rem;
 }
 
 .desc-p {
@@ -280,7 +287,6 @@
 
 .carrousel-wrapper {
   position: relative;
-  margin-block-start: 6rem;
 }
 
 /* Style pour le slide actif/centré */

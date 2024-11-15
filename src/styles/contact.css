@@ -139,7 +139,6 @@
   }
 }
 
-/* Très petits écrans (jusqu'à 480px) */
 @media screen and (max-width: 480px) {
   .contact-container {
     height: auto;
@@ -175,7 +174,6 @@
   }
 }
 
-/* Grands écrans (à partir de 1200px) */
 @media screen and (min-width: 1200px) {
   .form-wrapper {
     max-width: 800px;
@@ -193,7 +191,6 @@
   }
 }
 
-/* Pour les écrans avec une hauteur réduite */
 @media screen and (max-height: 600px) {
   .contact-container {
     height: auto;

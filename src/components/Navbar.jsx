@@ -81,6 +81,11 @@ const Navbar = () => {
                   Infos Utiles
                 </NavLink>
               </li>
+              <li className="mobile-contact">
+                <NavLink to="contact">
+                  <button className="btn-contact">Nous Contacter</button>
+                </NavLink>
+              </li>
             </ul>
           </nav>
           <NavLink to="contact">

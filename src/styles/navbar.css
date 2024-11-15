@@ -163,7 +163,17 @@
 .navlink.show {
   display: flex;
   flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
   width: 100%;
+}
+
+.mobile-contact {
+  display: none;
+}
+
+.block-p-vehicule {
+  padding: 3rem 2rem;
 }
 
 @media screen and (max-width: 1024px) {
@@ -187,6 +197,20 @@
 @media screen and (max-width: 768px) {
   .menu-button {
     display: block;
+  }
+
+  .flex-navbar > .btn-contact,
+  .flex-navbar > a[href="/contact"] {
+    display: none;
+  }
+
+  .mobile-contact {
+    display: block;
+    text-align: center;
+  }
+
+  .mobile-contact .btn-contact {
+    width: 100%;
   }
 
   .navlink.show {
@@ -263,7 +287,6 @@
   .navlink ul {
     flex-direction: column;
     align-items: center;
-    gap: 1rem;
   }
 
   .btn-contact {
