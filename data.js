@@ -78,6 +78,33 @@ const carData = [
   },
 ];
 
+const carrouselData = [
+  {
+    id: 1,
+    category: "Catégorie A",
+    subCategory: "Citadine",
+    image: car4,
+  },
+  {
+    id: 2,
+    category: "Catégorie B",
+    subCategory: "Compacte",
+    image: car4,
+  },
+  {
+    id: 3,
+    category: "Catégorie C",
+    subCategory: "Familiale",
+    image: car4,
+  },
+  {
+    id: 4,
+    category: "SUV",
+    subCategory: "SUV",
+    image: car4,
+  },
+];
+
 const faqData = [
   {
     question: "Quels documents faut-il pour réserver chez BAMA'LOC ?",
@@ -101,4 +128,4 @@ const faqData = [
   },
 ];
 
-export { carData, faqData };
+export { carData, faqData, carrouselData };

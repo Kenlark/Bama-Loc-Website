@@ -1,11 +1,15 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import Slider from "react-slick";
-import { carData, faqData } from "../../data.js";
+import { faqData, carrouselData } from "../../data.js";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import ChevronDown from "../assets/images/iconmonstr-arrow-65-240.png";
 import ChevronUp from "../assets/images/iconmonstr-arrow-66-240.png";
+import Aircraft from "../assets/images/iconmonstr-airport-3.svg";
+import Smiley from "../assets/images/iconmonstr-smiley-thin.svg";
+import EuroLogo from "../assets/images/iconmonstr-currency-6.svg";
+import RoadLogo from "../assets/images/road_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.svg";
 
 const Home = () => {
   const [openIndex, setOpenIndex] = useState(null);
@@ -40,6 +44,14 @@ const Home = () => {
     ),
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
+    responsive: [
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 1,
+        },
+      },
+    ],
   };
 
   return (
@@ -65,15 +77,15 @@ const Home = () => {
         <div className="carrousel-container">
           <div className="carrousel-wrapper">
             <Slider {...settings}>
-              {carData.map((car) => (
+              {carrouselData.map((car) => (
                 <div key={car.id} className="carrousel-item">
                   <img
                     src={car.image}
-                    alt={`${car.category} ${car.model}`}
+                    alt={`${car.category} ${car.subCategory}`}
                     className="carrousel-image"
                   />
-                  <h1>{car.category}</h1>
-                  <h1>{car.model}</h1>
+                  <p className="category-car">{car.category}</p>
+                  <p className="subcategory-car">{car.subCategory}</p>
                   <NavLink to="vehicule">
                     <button className="btn-vehicule">Voir Plus</button>
                   </NavLink>
@@ -82,6 +94,45 @@ const Home = () => {
             </Slider>
           </div>
         </div>
+        <section className="advantages">
+          <div className="advantages-container">
+            <div className="advantage-item">
+              <img
+                src={Aircraft}
+                alt="Icône aéroport"
+                className="advantage-icon"
+              />
+              <h4>Accueil/Retour Aéroport</h4>
+              <p>Gratuit</p>
+            </div>
+
+            <div className="advantage-item">
+              <img
+                src={Smiley}
+                alt="Icône qualité"
+                className="advantage-icon"
+              />
+              <h4>Qualité Garantie</h4>
+              <p>24/24H</p>
+            </div>
+
+            <div className="advantage-item">
+              <img src={EuroLogo} alt="Icône prix" className="advantage-icon" />
+              <h4>Rapport Qualité/Prix</h4>
+              <p>Optimal</p>
+            </div>
+
+            <div className="advantage-item">
+              <img
+                src={RoadLogo}
+                alt="Icône kilométrage"
+                className="advantage-icon"
+              />
+              <h4>Kilométrage</h4>
+              <p>Illimité</p>
+            </div>
+          </div>
+        </section>
       </section>
       <section className="description">
         <div className="grid-desc">
