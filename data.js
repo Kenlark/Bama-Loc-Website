@@ -9,8 +9,7 @@ const carData = [
     category: "Hatchback",
     model: "Hyundai i10",
     image: car1,
-    description:
-      "Le design de la Hyundai i10 est jeune et expressif et ses technologies de pointe en font un compagnon de choix, cette petite citadine, dotée d'un transmission manuelle robotisée c'est un véhicule parfait pour un séjour agréable en Guadeloupe.",
+    description: "A FAIRE",
     features: ["5 portes", "Climatisation", "Bluetooth"],
     priceFrom: "20.00",
   },
@@ -19,8 +18,7 @@ const carData = [
     category: "Sedan",
     model: "Hyundai i20",
     image: car2,
-    description:
-      "Dynamique et original la Hyundai i20 définit de nouvelles références sur le segment des citadines. Combinant des équipements de sécurités et de connectivité de pointe. Ce véhicule est pour notre part l'un des plus agréable pour passer de superbes vacances en GUADELOUPE.",
+    description: "A FAIRE",
     features: ["5 portes", "Climatisation", "Bluetooth"],
     priceFrom: "15.00",
   },
