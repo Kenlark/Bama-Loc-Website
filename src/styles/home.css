@@ -506,7 +506,7 @@
   height: 50px;
   margin-block-end: 1rem;
   filter: invert(50%) sepia(100%) saturate(7142%) hue-rotate(349deg)
-    brightness(100%) contrast(100%) opacity(0.7);
+    brightness(100%) contrast(100%) opacity(0.8);
   transition: var(--transition);
 }
 
