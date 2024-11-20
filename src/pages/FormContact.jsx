@@ -78,57 +78,52 @@ const FormContact = () => {
   };
 
   return (
-    <div className="page-wrapper">
-      <section className="contact-container">
-        <div className="bcg-contact">
-          <div className="overlay"></div>
-        </div>
-        <div className="form-wrapper">
-          <form ref={form} onSubmit={handleSubmit} className="contact-form">
-            <label>Nom</label>
-            <input type="text" name="user_name" required />
+    <section className="contact-container">
+      <div className="bcg-contact">
+        <div className="overlay"></div>
+      </div>
+      <div className="form-wrapper">
+        <form ref={form} onSubmit={handleSubmit} className="contact-form">
+          <label>Nom</label>
+          <input type="text" name="user_name" required />
 
-            <label>Prénom</label>
-            <input type="text" name="user_firstname" required />
+          <label>Prénom</label>
+          <input type="text" name="user_firstname" required />
 
-            <label>Email</label>
-            <input type="email" name="user_email" required />
+          <label>Email</label>
+          <input type="email" name="user_email" required />
 
-            <label>Téléphone</label>
-            <input type="tel" name="user_phone" required />
+          <label>Téléphone</label>
+          <input type="tel" name="user_phone" required />
 
-            <label>Voiture</label>
-            <select name="car_model" required>
-              <option value="">Sélectionnez une voiture</option>
-              {carData.map((car, index) => (
-                <option key={index} value={car.model}>
-                  {car.model}
-                </option>
-              ))}
-            </select>
+          <label>Voiture</label>
+          <select name="car_model" required>
+            <option value="">Sélectionnez une voiture</option>
+            {carData.map((car, index) => (
+              <option key={index} value={car.model}>
+                {car.model}
+              </option>
+            ))}
+          </select>
 
-            <label>Message</label>
-            <textarea
-              name="message"
-              required
-              value={message}
-              onChange={handleMessageChange}
-            ></textarea>
+          <label>Message</label>
+          <textarea
+            name="message"
+            required
+            value={message}
+            onChange={handleMessageChange}
+          ></textarea>
 
-            <div
-              className="g-recaptcha"
-              data-sitekey={RECAPTCHA_SITE_KEY}
-            ></div>
+          <div className="g-recaptcha" data-sitekey={RECAPTCHA_SITE_KEY}></div>
 
-            <input type="hidden" name="recaptcha_token" />
+          <input type="hidden" name="recaptcha_token" />
 
-            <button type="submit" className="btn-submit" disabled={isSending}>
-              {isSending ? "Envoi en cours..." : "Envoyer"}
-            </button>
-          </form>
-        </div>
-      </section>
-    </div>
+          <button type="submit" className="btn-submit" disabled={isSending}>
+            {isSending ? "Envoi en cours..." : "Envoyer"}
+          </button>
+        </form>
+      </div>
+    </section>
   );
 };
 
