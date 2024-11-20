@@ -96,6 +96,25 @@
   justify-content: flex-end;
 }
 
+.contact-form .form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.input-pair {
+  display: flex;
+  gap: 20px;
+}
+
+.input-pair > div {
+  flex: 1;
+}
+
+.contact-form select {
+  padding: 10px;
+}
+
 @media screen and (max-width: 768px) {
   .bcg-contact {
     height: 50vh;

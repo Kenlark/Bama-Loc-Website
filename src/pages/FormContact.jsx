@@ -12,14 +12,9 @@ import {
 
 const FormContact = () => {
   const form = useRef();
-
-  // Utilisation de useRef pour créer une référence au formulaire DOM.
-  // Cela permet d'envoyer toutes les données du formulaire avec emailjs
-  // et d'accéder directement à des champs, comme le recaptcha_token.
-
   const navigate = useNavigate();
   const [message, setMessage] = useState("");
-  const [isSending, setIsSending] = useState(false); // Nouvel état pour le statut d'envoi
+  const [isSending, setIsSending] = useState(false);
 
   useEffect(() => {
     const script = document.createElement("script");
@@ -30,8 +25,6 @@ const FormContact = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    // Réinitialisation du statut d'envoi
     setIsSending(true);
 
     const recaptchaResponse = document.querySelector(
@@ -39,12 +32,9 @@ const FormContact = () => {
     ).value;
 
     if (!recaptchaResponse) {
-      setTimeout(() => {
-        toast.error(
-          "Veuillez compléter le CAPTCHA avant d'envoyer le formulaire."
-        );
-      }, 2000);
-
+      toast.error(
+        "Veuillez compléter le CAPTCHA avant d'envoyer le formulaire."
+      );
       setIsSending(false);
       return;
     }
@@ -60,18 +50,11 @@ const FormContact = () => {
       )
       .then(
         (result) => {
-          console.log(result.text);
-
           toast.success("Message envoyé avec succès !");
-
-          setTimeout(() => {
-            navigate("/");
-          }, 2000);
-
-          setIsSending(false); // Fin de l'envoi
+          setTimeout(() => navigate("/"), 2000);
+          setIsSending(false);
         },
         (error) => {
-          console.error(error.text);
           toast.error("Erreur lors de l'envoi du message. Veuillez réessayer.");
           setIsSending(false);
         }
@@ -84,33 +67,52 @@ const FormContact = () => {
 
   return (
     <section className="contact-container">
-      <div className="bcg-contact">
-        <div className="overlay"></div>
-      </div>
+      <div className="bcg-contact"></div>
       <div className="form-wrapper">
         <form ref={form} onSubmit={handleSubmit} className="contact-form">
-          <label>Nom</label>
-          <input type="text" name="user_name" required />
-
-          <label>Prénom</label>
-          <input type="text" name="user_firstname" required />
-
-          <label>Email</label>
-          <input type="email" name="user_email" required />
-
-          <label>Téléphone</label>
-          <input type="tel" name="user_phone" required />
-
-          <label>Voiture</label>
-          <select name="car_model" required>
-            <option value="">Sélectionnez une voiture</option>
-            {carData.map((car, index) => (
-              <option key={index} value={car.model}>
-                {car.model}
-              </option>
-            ))}
-          </select>
-
+          <div className="form-group">
+            <div className="input-pair">
+              <div>
+                <label>Prénom</label>
+                <input type="text" name="user_firstname" required />
+              </div>
+              <div>
+                <label>Nom</label>
+                <input type="text" name="user_name" required />
+              </div>
+            </div>
+            <div className="input-pair">
+              <div>
+                <label>Email</label>
+                <input type="email" name="user_email" required />
+              </div>
+              <div>
+                <label>Téléphone</label>
+                <input type="tel" name="user_phone" required />
+              </div>
+            </div>
+            <div className="input-pair">
+              <div>
+                <label>Voiture</label>
+                <select name="car_model" required>
+                  <option value="">Sélectionnez une voiture</option>
+                  {carData.map((car, index) => (
+                    <option key={index} value={car.model}>
+                      {car.model}
+                    </option>
+                  ))}
+                </select>
+              </div>
+              <div>
+                <label>Ancienneté du permis de conduire</label>
+                <select name="license_duration" required>
+                  <option value="">Sélectionnez une ancienneté</option>
+                  <option>Inférieur à 3 ans</option>
+                  <option>Supérieur à 3 ans</option>
+                </select>
+              </div>
+            </div>
+          </div>
           <label>Message</label>
           <textarea
             name="message"
@@ -120,7 +122,6 @@ const FormContact = () => {
           ></textarea>
 
           <div className="g-recaptcha" data-sitekey={RECAPTCHA_SITE_KEY}></div>
-
           <input type="hidden" name="recaptcha_token" />
 
           <button type="submit" className="btn-submit" disabled={isSending}>
