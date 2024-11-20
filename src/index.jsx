@@ -9,6 +9,8 @@ import Contact from "./pages/FormContact.jsx";
 import RentalConditions from "./pages/RentalConditions.jsx";
 import LegalNotice from "./pages/LegalNotice.jsx";
 import PrivacyPolicy from "./pages/PrivacyPage.jsx";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const ReactRouter = () => {
   const router = createBrowserRouter([
@@ -55,6 +57,7 @@ const ReactRouter = () => {
 
   return (
     <>
+      <ToastContainer position="top-center" />
       <RouterProvider router={router} />
     </>
   );

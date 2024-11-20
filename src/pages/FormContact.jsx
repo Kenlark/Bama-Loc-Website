@@ -2,6 +2,7 @@ import { useRef, useEffect, useState } from "react";
 import emailjs from "emailjs-com";
 import { useNavigate } from "react-router-dom";
 import { carData } from "../../data.js";
+import { toast } from "react-toastify";
 import {
   EMAILJS_SERVICE_ID,
   EMAILJS_TEMPLATE_ID,
@@ -13,6 +14,7 @@ const FormContact = () => {
   const form = useRef();
   const navigate = useNavigate();
   const [message, setMessage] = useState("");
+  const [isSending, setIsSending] = useState(false); // Nouvel état pour le statut d'envoi
 
   useEffect(() => {
     const script = document.createElement("script");
@@ -24,12 +26,21 @@ const FormContact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    // Réinitialisation du statut d'envoi
+    setIsSending(true);
+
     const recaptchaResponse = document.querySelector(
       ".g-recaptcha-response"
     ).value;
 
     if (!recaptchaResponse) {
-      alert("Veuillez compléter le CAPTCHA avant d'envoyer le formulaire.");
+      setTimeout(() => {
+        toast.error(
+          "Veuillez compléter le CAPTCHA avant d'envoyer le formulaire."
+        );
+      }, 2000);
+
+      setIsSending(false);
       return;
     }
 
@@ -45,12 +56,19 @@ const FormContact = () => {
       .then(
         (result) => {
           console.log(result.text);
-          alert("Message envoyé avec succès !");
-          navigate("/");
+
+          toast.success("Message envoyé avec succès !");
+
+          setTimeout(() => {
+            navigate("/");
+          }, 2000);
+
+          setIsSending(false); // Fin de l'envoi
         },
         (error) => {
           console.error(error.text);
-          alert("Erreur lors de l'envoi du message, veuillez réessayer.");
+          toast.error("Erreur lors de l'envoi du message. Veuillez réessayer.");
+          setIsSending(false);
         }
       );
   };
@@ -104,8 +122,8 @@ const FormContact = () => {
 
             <input type="hidden" name="recaptcha_token" />
 
-            <button type="submit" className="btn-submit">
-              Envoyer
+            <button type="submit" className="btn-submit" disabled={isSending}>
+              {isSending ? "Envoi en cours..." : "Envoyer"}
             </button>
           </form>
         </div>
