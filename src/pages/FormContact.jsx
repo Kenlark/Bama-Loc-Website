@@ -1,6 +1,6 @@
 import { useRef, useEffect, useState } from "react";
 import emailjs from "emailjs-com";
-import { Form, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { carData } from "../../data.js";
 import {
   EMAILJS_SERVICE_ID,
@@ -11,36 +11,29 @@ import {
 
 const FormContact = () => {
   const form = useRef();
-  const [captchaToken, setCaptchaToken] = useState("");
-  const [message, setMessage] = useState("");
   const navigate = useNavigate();
+  const [message, setMessage] = useState("");
 
   useEffect(() => {
     const script = document.createElement("script");
-    script.src = `https://www.google.com/recaptcha/api.js?render=${RECAPTCHA_SITE_KEY}`;
+    script.src = "https://www.google.com/recaptcha/api.js";
     script.async = true;
-    script.onload = () => {
-      console.log("reCAPTCHA script loaded");
-      window.grecaptcha.ready(() => {
-        window.grecaptcha
-          .execute(RECAPTCHA_SITE_KEY, { action: "submit" })
-          .then((token) => {
-            setCaptchaToken(token);
-          });
-      });
-    };
     document.body.appendChild(script);
   }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!captchaToken) {
-      alert("Veuillez vérifier que vous n'êtes pas un robot.");
+    const recaptchaResponse = document.querySelector(
+      ".g-recaptcha-response"
+    ).value;
+
+    if (!recaptchaResponse) {
+      alert("Veuillez compléter le CAPTCHA avant d'envoyer le formulaire.");
       return;
     }
 
-    form.current.recaptcha_token.value = captchaToken;
+    form.current.recaptcha_token.value = recaptchaResponse;
 
     emailjs
       .sendForm(
@@ -73,7 +66,7 @@ const FormContact = () => {
           <div className="overlay"></div>
         </div>
         <div className="form-wrapper">
-          <Form ref={form} onSubmit={handleSubmit} className="contact-form">
+          <form ref={form} onSubmit={handleSubmit} className="contact-form">
             <label>Nom</label>
             <input type="text" name="user_name" required />
 
@@ -90,7 +83,9 @@ const FormContact = () => {
             <select name="car_model" required>
               <option value="">Sélectionnez une voiture</option>
               {carData.map((car, index) => (
-                <option key={index}>{car.model}</option>
+                <option key={index} value={car.model}>
+                  {car.model}
+                </option>
               ))}
             </select>
 
@@ -100,20 +95,19 @@ const FormContact = () => {
               required
               value={message}
               onChange={handleMessageChange}
-            />
+            ></textarea>
 
             <div
               className="g-recaptcha"
               data-sitekey={RECAPTCHA_SITE_KEY}
-              data-size="invisible"
-            />
+            ></div>
 
-            <input type="hidden" name="recaptcha_token" value={captchaToken} />
+            <input type="hidden" name="recaptcha_token" />
 
             <button type="submit" className="btn-submit">
               Envoyer
             </button>
-          </Form>
+          </form>
         </div>
       </section>
     </div>
