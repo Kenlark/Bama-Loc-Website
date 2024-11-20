@@ -12,6 +12,11 @@ import {
 
 const FormContact = () => {
   const form = useRef();
+
+  // Utilisation de useRef pour créer une référence au formulaire DOM.
+  // Cela permet d'envoyer toutes les données du formulaire avec emailjs
+  // et d'accéder directement à des champs, comme le recaptcha_token.
+
   const navigate = useNavigate();
   const [message, setMessage] = useState("");
   const [isSending, setIsSending] = useState(false); // Nouvel état pour le statut d'envoi
