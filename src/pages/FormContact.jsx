@@ -9,6 +9,7 @@ import {
   EMAILJS_PUBLIC_KEY,
   RECAPTCHA_SITE_KEY,
 } from "../config.js";
+import { parsePhoneNumberFromString } from "libphonenumber-js";
 
 const FormContact = () => {
   const form = useRef();
@@ -38,6 +39,20 @@ const FormContact = () => {
       setIsSending(false);
       return;
     }
+
+    const phone = form.current.user_phone.value;
+    const phoneNumber = parsePhoneNumberFromString(phone, "FR");
+
+    if (!phoneNumber || !phoneNumber.isValid()) {
+      toast.error("Le numéro de téléphone n'est pas valide.");
+      setIsSending(false);
+      return;
+    }
+
+    const formattedPhone = phoneNumber.formatInternational(); // Formatte le numéro avec l'indicatif international
+
+    // On assigne le numéro formaté au champ de téléphone du formulaire avant l'envoi
+    form.current.user_phone.value = formattedPhone;
 
     form.current.recaptcha_token.value = recaptchaResponse;
 
@@ -88,7 +103,12 @@ const FormContact = () => {
               </div>
               <div>
                 <label>Téléphone</label>
-                <input type="tel" name="user_phone" required />
+                <input
+                  type="tel"
+                  name="user_phone"
+                  required
+                  inputMode="numeric"
+                />
               </div>
             </div>
             <div className="input-pair">
