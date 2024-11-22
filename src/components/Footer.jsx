@@ -3,8 +3,8 @@ import { NavLink } from "react-router-dom";
 import Logo from "../assets/images/4.png";
 import Instagram from "../assets/images/iconmonstr-instagram-11-240.png";
 import Facebook from "../assets/images/iconmonstr-facebook-3-240.png";
-import Phone from "../assets/images/iconmonstr-email-2-240.png";
-import Mail from "../assets/images/iconmonstr-phone-2-240.png";
+import Mail from "../assets/images/iconmonstr-email-2-240.png";
+import Phone from "../assets/images/iconmonstr-phone-2-240.png";
 
 const Footer = () => {
   return (
