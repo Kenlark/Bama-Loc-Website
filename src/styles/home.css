@@ -12,6 +12,7 @@
   --ff-grey2: #f3f4f6;
   --ff-grey3: #d1d5db;
   --ff-grey4: #4b5563;
+  --ff-red-hover: #dc2626;
   --transition: all 0.3s ease;
   --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
   --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -255,7 +256,7 @@
 .btn-vehicule:hover {
   transform: translateY(-2px);
   box-shadow: var(--shadow-md);
-  background-color: #dc2626;
+  background-color: var(--ff-red-hover);
 }
 
 .btn-hero,

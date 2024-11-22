@@ -1,4 +1,9 @@
-/* cars.css */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 :root {
   --navbar-color: #191919;
   --ff-color: #e3e2e2;
@@ -7,6 +12,8 @@
   --ff-grey2: #f3f4f6;
   --ff-grey3: #d1d5db;
   --ff-grey4: #4b5563;
+  --ff-red-hover: #dc2626;
+  --transition: all 0.3s ease;
 }
 
 .cars-container {
@@ -98,14 +105,13 @@
 }
 
 .car-info {
-  flex: 1;
-  padding: 0 20px;
+  padding: 0 1.3rem;
 }
 
 .car-info h2 {
-  color: #0052cc;
-  font-size: 1.5rem;
-  margin-bottom: 0.5rem;
+  color: var(--ff-red);
+  font-size: 1.5em;
+  margin-block-end: 0.5rem;
 }
 
 .car-category {
@@ -122,7 +128,7 @@
 
 .car-features {
   display: flex;
-  gap: 15px;
+  gap: 1rem;
   font-size: 1.5rem;
 }
 
@@ -144,18 +150,73 @@
 }
 
 .reserve-btn {
-  background: #0052cc;
+  background: var(--ff-red);
   color: white;
   border: none;
   padding: 8px 24px;
   border-radius: 4px;
   cursor: pointer;
   font-weight: 500;
-  transition: background-color 0.2s;
+  transition: var(--transition);
 }
 
 .reserve-btn:hover {
-  background: #003d99;
+  transform: translateY(-2px);
+  transition: var(--transition);
+  background: var(--ff-red-hover);
+}
+
+.feature-item {
+  position: relative;
+  cursor: pointer;
+  padding: 8px;
+}
+
+.feature-item:hover {
+  color: var(--ff-red);
+  transition: var(--transition);
+}
+
+/* texte de la feature */
+.tooltip {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  visibility: hidden;
+  opacity: 0;
+  background-color: var(--navbar-color);
+  color: white;
+  text-align: center;
+  padding: 5px 10px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  white-space: nowrap;
+  z-index: 1;
+  transition: opacity 0.3s, visibility 0.3s, transform 0.3s;
+  transform: translateX(-50%) translateY(10px);
+}
+
+/* fleche juste au dessus de l'icone */
+.tooltip::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 5px;
+  border-style: solid;
+  border-color: var(--navbar-color) transparent transparent transparent;
+}
+
+.feature-item:hover .tooltip {
+  visibility: visible;
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+.feature-icon {
+  width: 30px;
 }
 
 @media (max-width: 768px) {
@@ -195,6 +256,17 @@
   }
 
   .car-features {
+    flex-wrap: wrap;
     justify-content: center;
+    gap: 0.5rem;
+  }
+
+  .feature-item {
+    padding: 6px;
+  }
+
+  .tooltip {
+    font-size: 0.7rem;
+    padding: 4px 8px;
   }
 }

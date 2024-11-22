@@ -4,6 +4,17 @@ import "slick-carousel/slick/slick-theme.css";
 import { NavLink } from "react-router-dom";
 import { carData } from "../../data.js";
 import { useRef } from "react";
+import Gear from "../assets/images/iconmonstr-gear-2-240.png";
+import Fuel from "../assets/images/pompe-a-essence.png";
+import Engine from "../assets/images/moteur.png";
+import Snow from "../assets/images/flocon-de-neige.png";
+import Car from "../assets/images/voiture.png";
+import Reversing from "../assets/images/voiture-autonome.png";
+import Bluetooth from "../assets/images/bluetooth.png";
+import CarPlay from "../assets/images/carplay.png";
+import Seat from "../assets/images/siege.png";
+import Infos from "../assets/images/information.png";
+import Usb from "../assets/images/usb.png";
 
 const Cars = () => {
   const sliderRefs = useRef([]);
@@ -17,16 +28,38 @@ const Cars = () => {
     arrows: true,
   };
 
+  const featureIcons = {
+    "Boite Automatique": Gear,
+    "Boite Manuelle": Gear,
+    Essence: Fuel,
+    "150cv": Engine,
+    "84cv": Engine,
+    "82cv": Engine,
+    "90cv": Engine,
+    "130cv": Engine,
+    Climatisation: Snow,
+    "5 portes": Car,
+    "Radar de recul/avant/côté": Reversing,
+    "Radar de recul/avant": Reversing,
+    "Radar de recul": Reversing,
+    Bluetooth: Bluetooth,
+    "Car Play": CarPlay,
+    "Siège Électrique": Seat,
+    "Chargeur USB": Usb,
+    "Finition Premium": Infos,
+    "Vitres teintées": Infos,
+  };
+
   return (
     <div className="cars-container">
       <h1>Nos Modèles de Voitures</h1>
       <p className="description">
-        Bama'Loc offre une large sélection de voitures économiques et
-        climatisées qui répondront à tous vos besoin. Toute notre flotte de
-        véhicules est neuve ! Nous proposons des prix abordables toute l'année,
-        avec des forfaits comprenant une assurance tous risques, un kilométrage
-        illimité et une assistance disponible 7j/7 et 24h/24. Bama'Loc est un
-        partenaire de confiance vous assurant une location fiable en Guadeloupe.
+        Découvrez une gamme variée de véhicules récents et économiques, parfaits
+        pour explorer les trésors de l'île. Chez Bama'Loc, nous mettons à votre
+        disposition des voitures modernes, climatisées et adaptées à tous vos
+        besoins, à des tarifs compétitifs toute l'année. Faites confiance à
+        Bama'Loc pour une location pratique et fiable lors de votre séjour en
+        Guadeloupe !
       </p>
 
       <div className="cars-grid">
@@ -35,7 +68,7 @@ const Cars = () => {
             <div className="car-image">
               <Slider
                 {...settings}
-                ref={(el) => (sliderRefs.current[carIndex] = el)}
+                ref={(ref) => (sliderRefs.current[carIndex] = ref)}
               >
                 {[car.image, car.image, car.image].map((image, index) => (
                   <div key={index}>
@@ -50,13 +83,21 @@ const Cars = () => {
               <p className="car-description">{car.description}</p>
               <div className="car-features">
                 {car.features.map((feature, index) => (
-                  <span key={index}>{feature}</span>
+                  <span key={index} className="feature-item">
+                    <img
+                      src={featureIcons[feature]}
+                      alt={feature}
+                      className="feature-icon"
+                    />
+                    <span className="tooltip">{feature}</span>
+                  </span>
                 ))}
               </div>
             </div>
             <div className="car-price">
               <p>À partir de</p>
               <p className="price">{Number(car.priceFrom).toFixed(2)}€</p>
+              {/* toFixed pour les decimales */}
               <NavLink to="/contact">
                 <button className="reserve-btn">RÉSERVER</button>
               </NavLink>
