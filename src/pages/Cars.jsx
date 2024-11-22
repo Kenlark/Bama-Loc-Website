@@ -72,7 +72,7 @@ const Cars = () => {
               >
                 {[car.image, car.image, car.image].map((image, index) => (
                   <div key={index}>
-                    <img src={image} alt={`${car.model} vue ${index + 1}`} />
+                    <img src={image} alt={`${car.model}`} />
                   </div>
                 ))}
               </Slider>
