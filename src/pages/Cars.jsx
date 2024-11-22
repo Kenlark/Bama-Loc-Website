@@ -26,6 +26,14 @@ const Cars = () => {
     slidesToShow: 1,
     slidesToScroll: 1,
     arrows: true,
+    responsive: [
+      {
+        breakpoint: 572,
+        settings: {
+          dots: false,
+        },
+      },
+    ],
   };
 
   const featureIcons = {
