@@ -153,6 +153,7 @@ const carData = [
       "Bluetooth",
       "Car Play",
       "Radar de recul/avant/côté",
+      "Finition RLine",
     ],
     priceFrom: "70.00",
   },

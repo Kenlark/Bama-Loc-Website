@@ -56,6 +56,7 @@ const Cars = () => {
     "Chargeur USB": Usb,
     "Finition Premium": Infos,
     "Vitres teintées": Infos,
+    "Finition RLine": Infos,
   };
 
   return (
