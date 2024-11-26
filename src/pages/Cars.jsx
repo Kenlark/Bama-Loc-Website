@@ -4,6 +4,7 @@ import "slick-carousel/slick/slick-theme.css";
 import { NavLink } from "react-router-dom";
 import { carData } from "../../data.js";
 import { useRef } from "react";
+import { motion, useInView } from "framer-motion";
 import Gear from "../assets/images/iconmonstr-gear-2-240.png";
 import Fuel from "../assets/images/pompe-a-essence.png";
 import Engine from "../assets/images/moteur.png";
@@ -18,6 +19,12 @@ import Usb from "../assets/images/usb.png";
 
 const Cars = () => {
   const sliderRefs = useRef([]);
+
+  const CarsRef = useRef(null);
+  const DescRef = useRef(null);
+
+  const isCarsVisible = useInView(CarsRef, { once: true });
+  const isDescVisible = useInView(CarsRef, { once: true });
 
   const settings = {
     dots: true,
@@ -61,17 +68,37 @@ const Cars = () => {
 
   return (
     <div className="cars-container">
-      <h1>Nos Modèles de Voitures</h1>
-      <p className="description">
-        Découvrez une gamme variée de véhicules récents et économiques, parfaits
-        pour explorer les trésors de l'île. Chez Bama'Loc, nous mettons à votre
-        disposition des voitures modernes, climatisées et adaptées à tous vos
-        besoins, à des tarifs compétitifs toute l'année. Faites confiance à
-        Bama'Loc pour une location pratique et fiable lors de votre séjour en
-        Guadeloupe !
-      </p>
-
-      <div className="cars-grid">
+      <motion.div
+        ref={DescRef}
+        initial={{ x: "-100%", opacity: 0 }}
+        animate={isDescVisible ? { x: 0, opacity: 1 } : {}}
+        transition={{
+          type: "spring",
+          stiffness: 100,
+          damping: 15,
+        }}
+      >
+        <h1>Nos Modèles de Voitures</h1>
+        <p className="description">
+          Découvrez une gamme variée de véhicules récents et économiques,
+          parfaits pour explorer les trésors de l'île. Chez Bama'Loc, nous
+          mettons à votre disposition des voitures modernes, climatisées et
+          adaptées à tous vos besoins, à des tarifs compétitifs toute l'année.
+          Faites confiance à Bama'Loc pour une location pratique et fiable lors
+          de votre séjour en Guadeloupe !
+        </p>
+      </motion.div>
+      <motion.div
+        ref={CarsRef}
+        initial={{ x: "100%", opacity: 0 }}
+        animate={isCarsVisible ? { x: 0, opacity: 1 } : {}}
+        transition={{
+          type: "spring",
+          stiffness: 100,
+          damping: 15,
+        }}
+        className="cars-grid"
+      >
         {carData.map((car, carIndex) => (
           <div key={car.id} className="car-card">
             <div className="car-image">
@@ -113,7 +140,7 @@ const Cars = () => {
             </div>
           </div>
         ))}
-      </div>
+      </motion.div>
     </div>
   );
 };
