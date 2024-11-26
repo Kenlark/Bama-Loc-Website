@@ -53,7 +53,7 @@ const Navbar = () => {
               </li>
               <li>
                 <NavLink
-                  to="vehicule"
+                  to="/vehicule"
                   className={({ isActive }) =>
                     isActive ? "active-btn" : "inactive-btn"
                   }
@@ -63,7 +63,7 @@ const Navbar = () => {
               </li>
               <li>
                 <NavLink
-                  to="options"
+                  to="/options"
                   className={({ isActive }) =>
                     isActive ? "active-btn" : "inactive-btn"
                   }
@@ -73,7 +73,7 @@ const Navbar = () => {
               </li>
               <li>
                 <NavLink
-                  to="infos"
+                  to="/infos"
                   className={({ isActive }) =>
                     isActive ? "active-btn" : "inactive-btn"
                   }
@@ -82,13 +82,13 @@ const Navbar = () => {
                 </NavLink>
               </li>
               <li className="mobile-contact">
-                <NavLink to="contact">
+                <NavLink to="/contact">
                   <button className="btn-contact">Nous Contacter</button>
                 </NavLink>
               </li>
             </ul>
           </nav>
-          <NavLink to="contact">
+          <NavLink to="/contact">
             <button className="btn-contact">Nous Contacter</button>
           </NavLink>
         </div>
