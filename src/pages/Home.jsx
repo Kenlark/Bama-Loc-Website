@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { NavLink } from "react-router-dom";
 import Slider from "react-slick";
 import { faqData, carrouselData } from "../../data.js";
+import { motion, useInView } from "framer-motion";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import ChevronDown from "../assets/images/iconmonstr-arrow-65-240.png";
@@ -14,10 +15,18 @@ import RoadLogo from "../assets/images/road_24dp_E8EAED_FILL0_wght400_GRAD0_opsz
 const Home = () => {
   const [openIndex, setOpenIndex] = useState(null);
 
+  // Référence pour la section "advantages"
+  const advantagesRef = useRef(null);
+
+  // Détecte si l'élément est visible dans le viewport
+  const isAdvantagesVisible = useInView(advantagesRef, { once: true });
+
+  // Fonction pour basculer les éléments de la FAQ
   const handleToggle = (index) => {
     setOpenIndex(openIndex === index ? null : index);
   };
 
+  // Flèches pour le carrousel
   const NextArrow = ({ className, onClick }) => (
     <button className={className} onClick={onClick} aria-label="Next Slide">
       &#8250;
@@ -30,6 +39,7 @@ const Home = () => {
     </button>
   );
 
+  // Configuration du carrousel
   const settings = {
     dots: true,
     infinite: true,
@@ -94,7 +104,17 @@ const Home = () => {
             </Slider>
           </div>
         </div>
-        <section className="advantages">
+        <motion.section
+          ref={advantagesRef}
+          initial={{ x: "100%", opacity: 0 }}
+          animate={isAdvantagesVisible ? { x: 0, opacity: 1 } : {}}
+          transition={{
+            type: "spring",
+            stiffness: 100,
+            damping: 15,
+          }}
+          className="advantages"
+        >
           <div className="advantages-container">
             <div className="advantage-item">
               <img
@@ -132,7 +152,7 @@ const Home = () => {
               <p>Illimité</p>
             </div>
           </div>
-        </section>
+        </motion.section>
       </section>
       <section className="description">
         <div className="grid-desc">
