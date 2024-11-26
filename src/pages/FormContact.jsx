@@ -1,4 +1,4 @@
-import { useRef, useEffect, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import emailjs from "emailjs-com";
 import { useNavigate } from "react-router-dom";
 import { carData } from "../../data.js";
@@ -7,7 +7,6 @@ import {
   EMAILJS_SERVICE_ID,
   EMAILJS_TEMPLATE_ID,
   EMAILJS_PUBLIC_KEY,
-  RECAPTCHA_SITE_KEY,
 } from "../config.js";
 import { parsePhoneNumberFromString } from "libphonenumber-js";
 
@@ -16,46 +15,33 @@ const FormContact = () => {
   const navigate = useNavigate();
   const [message, setMessage] = useState("");
   const [isSending, setIsSending] = useState(false);
-  const [recaptchaSize, setRecaptchaSize] = useState("normal"); // Gère la taille du reCAPTCHA
+  const [captchaAnswer, setCaptchaAnswer] = useState(""); // Réponse du CAPTCHA
+  const [captchaQuestion, setCaptchaQuestion] = useState(""); // Question mathématique
+  const [captchaCorrectAnswer, setCaptchaCorrectAnswer] = useState(null); // Réponse correcte du CAPTCHA
 
+  // Générer une question mathématique simple
+  const generateCaptcha = () => {
+    const num1 = Math.floor(Math.random() * 10);
+    const num2 = Math.floor(Math.random() * 10);
+    const question = `${num1} + ${num2}`;
+    const correctAnswer = num1 + num2;
+
+    setCaptchaQuestion(question);
+    setCaptchaCorrectAnswer(correctAnswer);
+  };
+
+  // Appel de la génération du CAPTCHA quand le composant est monté
   useEffect(() => {
-    // Charger le script reCAPTCHA
-    const script = document.createElement("script");
-    script.src = "https://www.google.com/recaptcha/api.js";
-    script.async = true;
-    document.body.appendChild(script);
-
-    // Détecter la taille de l'écran
-    const handleResize = () => {
-      if (window.innerWidth <= 370) {
-        setRecaptchaSize("compact");
-      } else {
-        setRecaptchaSize("normal");
-      }
-    };
-
-    // Écoute des changements de taille d'écran
-    window.addEventListener("resize", handleResize);
-
-    // Appel initial pour vérifier la taille au chargement
-    handleResize();
-
-    // Nettoyage de l'écouteur d'événements
-    return () => window.removeEventListener("resize", handleResize);
+    generateCaptcha();
   }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSending(true);
 
-    const recaptchaResponse = document.querySelector(
-      ".g-recaptcha-response"
-    ).value;
-
-    if (!recaptchaResponse) {
-      toast.error(
-        "Veuillez compléter le CAPTCHA avant d'envoyer le formulaire."
-      );
+    // Vérification du CAPTCHA maison
+    if (parseInt(captchaAnswer) !== captchaCorrectAnswer) {
+      toast.error("La réponse au CAPTCHA est incorrecte.");
       setIsSending(false);
       return;
     }
@@ -69,12 +55,8 @@ const FormContact = () => {
       return;
     }
 
-    const formattedPhone = phoneNumber.formatInternational(); // Formatte le numéro avec l'indicatif international
-
-    // On assigne le numéro formaté au champ de téléphone du formulaire avant l'envoi
+    const formattedPhone = phoneNumber.formatInternational();
     form.current.user_phone.value = formattedPhone;
-
-    form.current.recaptcha_token.value = recaptchaResponse;
 
     emailjs
       .sendForm(
@@ -161,12 +143,17 @@ const FormContact = () => {
             onChange={handleMessageChange}
           ></textarea>
 
-          <div
-            className="g-recaptcha"
-            data-sitekey={RECAPTCHA_SITE_KEY}
-            data-size={recaptchaSize} // Dynamique en fonction de l'écran
-          ></div>
-          <input type="hidden" name="recaptcha_token" />
+          {/* CAPTCHA maison */}
+          <div>
+            <label>{`Quel est le résultat de : ${captchaQuestion}`}</label>
+            <input
+              type="number"
+              name="captcha_answer"
+              value={captchaAnswer}
+              onChange={(e) => setCaptchaAnswer(e.target.value)}
+              required
+            />
+          </div>
 
           <button type="submit" className="btn-submit" disabled={isSending}>
             {isSending ? "Envoi en cours..." : "Envoyer"}
