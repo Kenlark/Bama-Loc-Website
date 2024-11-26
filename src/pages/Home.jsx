@@ -17,16 +17,23 @@ const Home = () => {
 
   // Référence pour la section "advantages"
   const advantagesRef = useRef(null);
+  const vehiclesRef = useRef(null);
+  const DescRef = useRef(null);
+  const FaqRef = useRef(null);
+  const CarrouselRef = useRef(null);
 
   // Détecte si l'élément est visible dans le viewport
   const isAdvantagesVisible = useInView(advantagesRef, { once: true });
+  const isVehiclesVisible = useInView(vehiclesRef, { once: true });
+  const isDescVisible = useInView(DescRef, { once: true });
+  const isFaqVisible = useInView(FaqRef, { once: true });
+  const isCarousselVisible = useInView(CarrouselRef, { once: true });
 
   // Fonction pour basculer les éléments de la FAQ
   const handleToggle = (index) => {
     setOpenIndex(openIndex === index ? null : index);
   };
 
-  // Flèches pour le carrousel
   const NextArrow = ({ className, onClick }) => (
     <button className={className} onClick={onClick} aria-label="Next Slide">
       &#8250;
@@ -39,7 +46,6 @@ const Home = () => {
     </button>
   );
 
-  // Configuration du carrousel
   const settings = {
     dots: true,
     infinite: true,
@@ -71,7 +77,17 @@ const Home = () => {
         <NavLink to="vehicule">
           <button className="btn-hero">Découvrez Nos Voitures</button>
         </NavLink>
-        <div className="block-p-vehicule">
+        <motion.div
+          ref={vehiclesRef}
+          initial={{ y: "100%", opacity: 0 }}
+          animate={isVehiclesVisible ? { y: 0, opacity: 1 } : {}}
+          transition={{
+            type: "spring",
+            stiffness: 100,
+            damping: 15,
+          }}
+          className="block-p-vehicule"
+        >
           <div className="block-p">
             <div className="carrousel-h1">
               <h1>Nos Véhicules</h1>
@@ -83,8 +99,17 @@ const Home = () => {
               fera un plaisir de vous répondre.
             </p>
           </div>
-        </div>
-        <div className="carrousel-container">
+        </motion.div>
+        <motion.div
+          ref={CarrouselRef}
+          initial={{ scale: 2, opacity: 0 }}
+          animate={isCarousselVisible ? { scale: 1, opacity: 1 } : {}}
+          transition={{
+            type: "spring",
+            damping: 30,
+          }}
+          className="carrousel-container"
+        >
           <div className="carrousel-wrapper">
             <Slider {...settings}>
               {carrouselData.map((car) => (
@@ -103,7 +128,7 @@ const Home = () => {
               ))}
             </Slider>
           </div>
-        </div>
+        </motion.div>
         <motion.section
           ref={advantagesRef}
           initial={{ x: "100%", opacity: 0 }}
@@ -154,7 +179,17 @@ const Home = () => {
           </div>
         </motion.section>
       </section>
-      <section className="description">
+      <motion.section
+        ref={DescRef}
+        initial={{ x: "-100%", opacity: 0 }}
+        animate={isDescVisible ? { x: 0, opacity: 1 } : {}}
+        transition={{
+          type: "spring",
+          stiffness: 100,
+          damping: 15,
+        }}
+        className="description"
+      >
         <div className="grid-desc">
           <div className="desc-text">
             <div className="grid-h1">
@@ -172,8 +207,18 @@ const Home = () => {
             </p>
           </div>
         </div>
-      </section>
-      <section className="faq-section">
+      </motion.section>
+      <motion.section
+        ref={FaqRef}
+        initial={{ scale: 0, opacity: 0 }}
+        animate={isFaqVisible ? { scale: 1, opacity: 1 } : {}}
+        transition={{
+          type: "spring",
+          stiffness: 100,
+          damping: 15,
+        }}
+        className="faq-section"
+      >
         <h2>Foire aux Questions</h2>
         {faqData.map((item, index) => (
           <div key={index} className="faq-item">
@@ -200,7 +245,7 @@ const Home = () => {
             </div>
           </div>
         ))}
-      </section>
+      </motion.section>
     </>
   );
 };
