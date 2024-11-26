@@ -16,12 +16,32 @@ const FormContact = () => {
   const navigate = useNavigate();
   const [message, setMessage] = useState("");
   const [isSending, setIsSending] = useState(false);
+  const [recaptchaSize, setRecaptchaSize] = useState("normal"); // Gère la taille du reCAPTCHA
 
   useEffect(() => {
+    // Charger le script reCAPTCHA
     const script = document.createElement("script");
     script.src = "https://www.google.com/recaptcha/api.js";
     script.async = true;
     document.body.appendChild(script);
+
+    // Détecter la taille de l'écran
+    const handleResize = () => {
+      if (window.innerWidth <= 370) {
+        setRecaptchaSize("compact");
+      } else {
+        setRecaptchaSize("normal");
+      }
+    };
+
+    // Écoute des changements de taille d'écran
+    window.addEventListener("resize", handleResize);
+
+    // Appel initial pour vérifier la taille au chargement
+    handleResize();
+
+    // Nettoyage de l'écouteur d'événements
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   const handleSubmit = async (e) => {
@@ -141,7 +161,11 @@ const FormContact = () => {
             onChange={handleMessageChange}
           ></textarea>
 
-          <div className="g-recaptcha" data-sitekey={RECAPTCHA_SITE_KEY}></div>
+          <div
+            className="g-recaptcha"
+            data-sitekey={RECAPTCHA_SITE_KEY}
+            data-size={recaptchaSize} // Dynamique en fonction de l'écran
+          ></div>
           <input type="hidden" name="recaptcha_token" />
 
           <button type="submit" className="btn-submit" disabled={isSending}>
