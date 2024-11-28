@@ -39,6 +39,13 @@ const FormContact = () => {
     e.preventDefault();
     setIsSending(true);
 
+    const honeypotValue = form.current.honeypot.value;
+    if (honeypotValue) {
+      toast.error("Suspicion de bot détectée. Formulaire rejeté.");
+      setIsSending(false);
+      return;
+    }
+
     // Vérification du CAPTCHA maison
     if (parseInt(captchaAnswer) !== captchaCorrectAnswer) {
       toast.error("La réponse au CAPTCHA est incorrecte.");
@@ -87,6 +94,13 @@ const FormContact = () => {
       <div className="bcg-contact"></div>
       <div className="form-wrapper">
         <form ref={form} onSubmit={handleSubmit} className="contact-form">
+          <input
+            type="text"
+            name="honeypot"
+            style={{ display: "none" }}
+            tabIndex="-1"
+            autoComplete="off"
+          />
           <div className="form-group">
             <div className="input-pair">
               <div>
