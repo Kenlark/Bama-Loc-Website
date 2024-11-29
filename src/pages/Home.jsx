@@ -86,6 +86,7 @@ const Home = () => {
             stiffness: 100,
             damping: 15,
           }}
+          viewport={{ once: true, amount: 0.1 }} // Déclenche à 10% de visibilité
           className="block-p-vehicule"
         >
           <div className="block-p">
@@ -108,6 +109,7 @@ const Home = () => {
             type: "spring",
             damping: 30,
           }}
+          viewport={{ once: true, amount: 0.1 }}
           className="carrousel-container"
         >
           <div className="carrousel-wrapper">
@@ -138,6 +140,7 @@ const Home = () => {
             stiffness: 100,
             damping: 15,
           }}
+          viewport={{ once: true, amount: 0.1 }}
           className="advantages"
         >
           <div className="advantages-container">
@@ -188,6 +191,7 @@ const Home = () => {
           stiffness: 100,
           damping: 15,
         }}
+        viewport={{ once: true, amount: 0.1 }}
         className="description"
       >
         <div className="grid-desc">
@@ -217,6 +221,7 @@ const Home = () => {
           stiffness: 100,
           damping: 15,
         }}
+        viewport={{ once: true, amount: 0.1 }}
         className="faq-section"
       >
         <h2>Foire aux Questions</h2>
