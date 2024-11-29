@@ -77,18 +77,7 @@ const Home = () => {
         <NavLink to="vehicule">
           <button className="btn-hero">Découvrez Nos Voitures</button>
         </NavLink>
-        <motion.div
-          ref={vehiclesRef}
-          initial={{ y: "100%", opacity: 0 }}
-          animate={isVehiclesVisible ? { y: 0, opacity: 1 } : {}}
-          transition={{
-            type: "spring",
-            stiffness: 100,
-            damping: 15,
-          }}
-          viewport={{ once: true, amount: 0.1 }} // Déclenche à 10% de visibilité
-          className="block-p-vehicule"
-        >
+        <div className="block-p-vehicule fade-in">
           <div className="block-p">
             <div className="carrousel-h1">
               <h1>Nos Véhicules</h1>
@@ -100,7 +89,7 @@ const Home = () => {
               fera un plaisir de vous répondre.
             </p>
           </div>
-        </motion.div>
+        </div>
         <motion.div
           ref={CarrouselRef}
           initial={{ scale: 2, opacity: 0 }}

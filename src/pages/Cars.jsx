@@ -68,16 +68,7 @@ const Cars = () => {
 
   return (
     <div className="cars-container">
-      <motion.div
-        ref={DescRef}
-        initial={{ x: "-100%", opacity: 0 }}
-        animate={isDescVisible ? { x: 0, opacity: 1 } : {}}
-        transition={{
-          type: "spring",
-          stiffness: 100,
-          damping: 15,
-        }}
-      >
+      <div className="fade-in">
         <h1>Nos Modèles de Voitures</h1>
         <p className="description">
           Découvrez une gamme variée de véhicules récents et économiques,
@@ -87,7 +78,7 @@ const Cars = () => {
           Faites confiance à Bama'Loc pour une location pratique et fiable lors
           de votre séjour en Guadeloupe !
         </p>
-      </motion.div>
+      </div>
       <motion.div
         ref={CarsRef}
         initial={{ x: "100%", opacity: 0 }}
