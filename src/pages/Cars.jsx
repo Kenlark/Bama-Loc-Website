@@ -21,10 +21,8 @@ const Cars = () => {
   const sliderRefs = useRef([]);
 
   const CarsRef = useRef(null);
-  const DescRef = useRef(null);
 
   const isCarsVisible = useInView(CarsRef, { once: true });
-  const isDescVisible = useInView(CarsRef, { once: true });
 
   const settings = {
     dots: true,

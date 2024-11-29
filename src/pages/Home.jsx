@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import Slider from "react-slick";
 import { faqData, carrouselData } from "../../data.js";
@@ -14,17 +14,16 @@ import RoadLogo from "../assets/images/road_24dp_E8EAED_FILL0_wght400_GRAD0_opsz
 
 const Home = () => {
   const [openIndex, setOpenIndex] = useState(null);
+  const [isUnderBreakpoint, setIsUnderBreakpoint] = useState(false);
 
   // Référence pour la section "advantages"
   const advantagesRef = useRef(null);
-  const vehiclesRef = useRef(null);
   const DescRef = useRef(null);
   const FaqRef = useRef(null);
   const CarrouselRef = useRef(null);
 
   // Détecte si l'élément est visible dans le viewport
   const isAdvantagesVisible = useInView(advantagesRef, { once: true });
-  const isVehiclesVisible = useInView(vehiclesRef, { once: true });
   const isDescVisible = useInView(DescRef, { once: true });
   const isFaqVisible = useInView(FaqRef, { once: true });
   const isCarousselVisible = useInView(CarrouselRef, { once: true });
@@ -70,13 +69,36 @@ const Home = () => {
     ],
   };
 
+  useEffect(() => {
+    const checkBreakpoint = () => {
+      setIsUnderBreakpoint(window.innerWidth <= 1235);
+    };
+
+    // Vérifie initialement
+    checkBreakpoint();
+
+    // Ajoute un écouteur pour les changements de taille d'écran
+    window.addEventListener("resize", checkBreakpoint);
+
+    // Nettoie l'écouteur
+    return () => window.removeEventListener("resize", checkBreakpoint);
+  }, []);
+
   return (
     <>
       <section className="section-carrousel">
-        <div className="hero" />
-        <NavLink to="vehicule">
-          <button className="btn-hero">Découvrez Nos Voitures</button>
-        </NavLink>
+        {isUnderBreakpoint ? (
+          <NavLink to="vehicule">
+            <div className="hero" />
+          </NavLink>
+        ) : (
+          <>
+            <div className="hero" />
+            <NavLink to="vehicule">
+              <button className="btn-hero">Découvrez Nos Voitures</button>
+            </NavLink>
+          </>
+        )}
         <div className="block-p-vehicule fade-in">
           <div className="block-p">
             <div className="carrousel-h1">
