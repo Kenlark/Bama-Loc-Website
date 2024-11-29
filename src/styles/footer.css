@@ -23,8 +23,8 @@
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  height: 14rem;
-  padding: 0 20rem;
+  min-height: 14rem;
+  padding: 1rem 10rem;
   background-color: var(--navbar-color);
 }
 
