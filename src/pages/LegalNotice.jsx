@@ -9,11 +9,11 @@ const LegalNotice = () => {
           <h2>1. Éditeur du site</h2>
           <p>Le présent site [Nom du site] est édité par :</p>
           <p>
-            <strong>Nom de l'éditeur</strong> : [Votre nom complet]
+            <strong>Nom de l&apos;éditeur</strong> : [Votre nom complet]
           </p>
           <p>
-            <strong>Adresse</strong> : [Indiquez "Adresse sur demande" si vous
-            ne souhaitez pas la rendre publique]
+            <strong>Adresse</strong> : [Indiquez &quot;Adresse sur demande&quot;
+            si vous ne souhaitez pas la rendre publique]
           </p>
           <p>
             <strong>Contact</strong> : [Votre email de contact]
@@ -27,15 +27,15 @@ const LegalNotice = () => {
           <h2>2. Hébergement du site</h2>
           <p>Le site est hébergé par :</p>
           <p>
-            <strong>Nom de l'hébergeur</strong> : [Nom de l'hébergeur, ex.
-            PlanetHoster]
+            <strong>Nom de l&apos;hébergeur</strong> : [Nom de l&apos;hébergeur,
+            ex. PlanetHoster]
           </p>
           <p>
-            <strong>Adresse</strong> : [Adresse de l'hébergeur]
+            <strong>Adresse</strong> : [Adresse de l&apos;hébergeur]
           </p>
           <p>
             <strong>Contact</strong> : [Numéro de téléphone / email de
-            l'hébergeur]
+            l&apos;hébergeur]
           </p>
         </section>
 
@@ -43,11 +43,12 @@ const LegalNotice = () => {
           <h2>3. Protection des données personnelles</h2>
           <p>
             Conformément au Règlement Général sur la Protection des Données
-            (RGPD) 2016/679 et à la loi "Informatique et Libertés" du 6 janvier
-            1978 modifiée, vous disposez d'un droit d'accès, de modification, de
-            rectification, de suppression, de limitation du traitement et de
-            portabilité des données vous concernant. Pour exercer ces droits,
-            veuillez nous contacter par courriel à : [Votre email de contact].
+            (RGPD) 2016/679 et à la loi &quot;Informatique et Libertés&quot; du
+            6 janvier 1978 modifiée, vous disposez d&apos;un droit d&apos;accès,
+            de modification, de rectification, de suppression, de limitation du
+            traitement et de portabilité des données vous concernant. Pour
+            exercer ces droits, veuillez nous contacter par courriel à : [Votre
+            email de contact].
           </p>
 
           <h3>Collecte des données</h3>
@@ -73,11 +74,12 @@ const LegalNotice = () => {
         <section>
           <h2>4. Utilisation des cookies</h2>
           <p>
-            Le site utilise des cookies pour améliorer l'expérience utilisateur
-            et à des fins de statistiques (notamment avec Google Analytics).
-            Vous pouvez gérer votre consentement en acceptant ou en refusant les
-            cookies via la bannière de cookies. Pour plus d'informations sur
-            l'utilisation des cookies, consultez notre{" "}
+            Le site utilise des cookies pour améliorer l&apos;expérience
+            utilisateur et à des fins de statistiques (notamment avec Google
+            Analytics). Vous pouvez gérer votre consentement en acceptant ou en
+            refusant les cookies via la bannière de cookies. Pour plus
+            d&apos;informations sur l&apos;utilisation des cookies, consultez
+            notre{" "}
             <NavLink to="/politique-de-confidentialite">
               Politique de Cookies
             </NavLink>
@@ -90,19 +92,21 @@ const LegalNotice = () => {
           <p>
             Toute reproduction, représentation, modification, publication,
             transmission, ou dénaturation du site ou de son contenu, par quelque
-            procédé que ce soit, est strictement interdite sans l'autorisation
-            préalable écrite de [Votre nom]. Toute utilisation non autorisée
-            constitue une contrefaçon susceptible de poursuites pénales.
+            procédé que ce soit, est strictement interdite sans
+            l&apos;autorisation préalable écrite de [Votre nom]. Toute
+            utilisation non autorisée constitue une contrefaçon susceptible de
+            poursuites pénales.
           </p>
         </section>
 
         <section>
           <h2>6. Responsabilité</h2>
           <p>
-            [Votre nom] s'efforce de fournir des informations exactes et à jour
-            sur le site, mais ne peut garantir leur exhaustivité ou leur
-            exactitude. L'éditeur ne peut être tenu responsable des dommages
-            directs ou indirects résultant de l'utilisation du site.
+            [Votre nom] s&apos;efforce de fournir des informations exactes et à
+            jour sur le site, mais ne peut garantir leur exhaustivité ou leur
+            exactitude. L&apos;éditeur ne peut être tenu responsable des
+            dommages directs ou indirects résultant de l&apos;utilisation du
+            site.
           </p>
         </section>
 

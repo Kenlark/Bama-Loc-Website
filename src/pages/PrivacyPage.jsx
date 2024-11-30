@@ -16,8 +16,8 @@ const PrivacyPolicy = () => {
         <section>
           <h2>1. Responsable du traitement des données</h2>
           <p>
-            Le responsable du traitement des données est : [Nom de l'entreprise
-            ou du site]
+            Le responsable du traitement des données est : [Nom de
+            l&apos;entreprise ou du site]
           </p>
           <p>Adresse : [Votre adresse]</p>
           <p>Contact : [Votre email de contact]</p>
@@ -38,8 +38,10 @@ const PrivacyPolicy = () => {
             peuvent inclure :
           </p>
           <ul>
-            <li>L'adresse IP (anonymisée pour respecter votre vie privée)</li>
-            <li>Le type d'appareil et de navigateur utilisé</li>
+            <li>
+              L&apos;adresse IP (anonymisée pour respecter votre vie privée)
+            </li>
+            <li>Le type d&apos;appareil et de navigateur utilisé</li>
             <li>Les pages visitées et la durée de la visite</li>
           </ul>
           <p>
@@ -71,10 +73,10 @@ const PrivacyPolicy = () => {
           </p>
           <ul>
             <li>
-              Amélioration de l'expérience utilisateur : Les données de
+              Amélioration de l&apos;expérience utilisateur : Les données de
               navigation collectées via Google Analytics nous permettent de
-              mieux comprendre l'utilisation de notre site et d'améliorer ses
-              fonctionnalités.
+              mieux comprendre l&apos;utilisation de notre site et
+              d&apos;améliorer ses fonctionnalités.
             </li>
             <li>
               Réponse aux demandes de contact : Les informations fournies dans
@@ -90,7 +92,7 @@ const PrivacyPolicy = () => {
             <li>
               Google Analytics : Les données de navigation sont partagées avec
               Google Analytics. Google peut être amené à traiter ces données
-              dans des pays hors de l'Union Européenne.
+              dans des pays hors de l&apos;Union Européenne.
             </li>
             <li>
               EmailJS : Les données de contact sont transmises à EmailJS pour
@@ -105,9 +107,9 @@ const PrivacyPolicy = () => {
           </h2>
           <p>
             Lors de votre première visite sur notre site, une bannière de
-            consentement vous informe de l'utilisation de cookies pour Google
-            Analytics. Vous avez la possibilité d'accepter ou de refuser le
-            suivi de votre navigation.
+            consentement vous informe de l&apos;utilisation de cookies pour
+            Google Analytics. Vous avez la possibilité d&apos;accepter ou de
+            refuser le suivi de votre navigation.
           </p>
           <p>
             Note : Le script Google Analytics ne sera activé que si vous donnez
@@ -136,11 +138,11 @@ const PrivacyPolicy = () => {
             données :
           </p>
           <ul>
-            <li>Droit d'accès</li>
+            <li>Droit d&apos;accès</li>
             <li>Droit de rectification</li>
-            <li>Droit à l'effacement</li>
+            <li>Droit à l&apos;effacement</li>
             <li>Droit à la limitation du traitement</li>
-            <li>Droit d'opposition</li>
+            <li>Droit d&apos;opposition</li>
           </ul>
           <p>
             Pour exercer vos droits, vous pouvez nous contacter à [email de

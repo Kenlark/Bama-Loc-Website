@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from "react";
+import PropTypes from "prop-types";
 import { NavLink } from "react-router-dom";
 import Slider from "react-slick";
 import { faqData, carrouselData } from "../../data.js";
@@ -84,6 +85,16 @@ const Home = () => {
     return () => window.removeEventListener("resize", checkBreakpoint);
   }, []);
 
+  NextArrow.propTypes = {
+    className: PropTypes.string,
+    onClick: PropTypes.func,
+  };
+
+  PrevArrow.propTypes = {
+    className: PropTypes.string,
+    onClick: PropTypes.func,
+  };
+
   return (
     <>
       <section className="section-carrousel">
@@ -107,8 +118,8 @@ const Home = () => {
             <p className="p-vehicule">
               Partez à l&apos;aventure en louant votre véhicule chez
               BAMA&apos;LOC pour découvrir la beauté de la Guadeloupe !
-              N&apos;hésitez pas à nous contacter, l&apos;équipe BAMA'LOC se
-              fera un plaisir de vous répondre.
+              N&apos;hésitez pas à nous contacter, l&apos;équipe BAMA&apos;LOC
+              se fera un plaisir de vous répondre.
             </p>
           </div>
         </div>
@@ -211,13 +222,14 @@ const Home = () => {
               <h3>Qui sommes nous ?</h3>
             </div>
             <p>
-              Bama'Loc, votre expert en location de véhicules en Guadeloupe,
-              vous offre un service de qualité pour explorer l'île en toute
-              tranquillité. Nos véhicules, soigneusement entretenus, assurent
-              confort et sécurité pour tous vos déplacements.
+              Bama&apos;Loc, votre expert en location de véhicules en
+              Guadeloupe, vous offre un service de qualité pour explorer
+              l&apos;île en toute tranquillité. Nos véhicules, soigneusement
+              entretenus, assurent confort et sécurité pour tous vos
+              déplacements.
             </p>
             <p className="desc-p">
-              Contactez-nous dès maintenant pour plus d'informations et
+              Contactez-nous dès maintenant pour plus d&apos;informations et
               préparez-vous à découvrir la Guadeloupe à votre rythme !
             </p>
           </div>

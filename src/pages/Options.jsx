@@ -6,7 +6,7 @@ const Options = () => {
           <h1>
             Parce que votre confort est notre priorité,
             <br />
-            Bama'Loc vous propose des services adaptés à vos besoins.
+            Bama&apos;Loc vous propose des services adaptés à vos besoins.
           </h1>
         </div>
 

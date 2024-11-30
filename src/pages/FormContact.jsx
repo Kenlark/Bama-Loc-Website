@@ -74,15 +74,16 @@ const FormContact = () => {
       )
       .then(
         (result) => {
+          console.log("EmailJS result:", result.text);
           toast.success("Message envoyé avec succès !");
           setTimeout(() => navigate("/"), 2000);
-          setIsSending(false);
         },
         (error) => {
+          console.error("EmailJS error:", error.text);
           toast.error("Erreur lors de l'envoi du message. Veuillez réessayer.");
-          setIsSending(false);
         }
-      );
+      )
+      .finally(() => setIsSending(false));
   };
 
   const handleMessageChange = (e) => {

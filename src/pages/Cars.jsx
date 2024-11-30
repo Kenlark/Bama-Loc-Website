@@ -70,11 +70,11 @@ const Cars = () => {
         <h1>Nos Modèles de Voitures</h1>
         <p className="description">
           Découvrez une gamme variée de véhicules récents et économiques,
-          parfaits pour explorer les trésors de l'île. Chez Bama'Loc, nous
-          mettons à votre disposition des voitures modernes, climatisées et
-          adaptées à tous vos besoins, à des tarifs compétitifs toute l'année.
-          Faites confiance à Bama'Loc pour une location pratique et fiable lors
-          de votre séjour en Guadeloupe !
+          parfaits pour explorer les trésors de l&apos;île. Chez Bama&apos;Loc,
+          nous mettons à votre disposition des voitures modernes, climatisées et
+          adaptées à tous vos besoins, à des tarifs compétitifs toute
+          l&apos;année. Faites confiance à Bama&apos;Loc pour une location
+          pratique et fiable lors de votre séjour en Guadeloupe !
         </p>
       </div>
       <motion.div
